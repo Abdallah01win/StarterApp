@@ -50,6 +50,14 @@ export const toasterOptions: ToasterOption[] = [
   }
 ]
 
+export enum BroadcastChannels {
+  NOTIFICATIONS = 'Notification'
+}
+
+export enum BroadcastEvents {
+  GENERAL = "GeneralEvent"
+}
+
 export const asideSizes = {
   collapsed: 4,
   min: 15,

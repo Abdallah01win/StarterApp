@@ -7,8 +7,8 @@ const filtersMap = [
         name: 'name'
       },
       {
-        alias: 'type',
-        name: 'type'
+        alias: 'role',
+        name: 'role'
       }
     ]
   }

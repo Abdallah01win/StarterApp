@@ -1,9 +1,16 @@
 import type { ResponseCodes } from '@/helpers'
+import Pusher from 'pusher-js'
 import type { Ref } from 'vue'
 
 export * from './components'
 export * from './dashboard'
 export * from './user'
+
+declare global {
+  interface Window {
+    Pusher: typeof Pusher
+  }
+}
 
 export interface Route {
   name: string

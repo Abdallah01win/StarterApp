@@ -10,17 +10,27 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
-import { DateFormats, formatDate } from '@/helpers'
-import { t } from '@/plugins'
+import { BroadcastChannels, BroadcastEvents, DateFormats, formatDate } from '@/helpers'
+import { getEchoInstance, t } from '@/plugins'
+import { useAuthStore } from '@/stores/authStore'
 import { useNotificationStore } from '@/stores/notificationStore'
 import { Bell, Check, Loader2 } from 'lucide-vue-next'
 import { ref } from 'vue'
 
+const authStore = useAuthStore()
 const notificationStore = useNotificationStore()
+
+const echo = getEchoInstance()
 
 const loadingNotifications = ref<number[]>([])
 
 const isLoading = (id: number) => loadingNotifications.value.includes(id)
+
+echo
+  .private(`${BroadcastChannels.NOTIFICATIONS}.${authStore.user?.id}`)
+  .listen(BroadcastEvents.GENERAL, (el: Notification) => {
+    console.log(el)
+  })
 
 const markAsRead = (id: number) => {
   loadingNotifications.value.push(id)
