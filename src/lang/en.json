@@ -98,5 +98,7 @@
   "unauthorized-request": "This request is unauthorized.",
   "expand-row": "Expand row",
   "role": "Role",
-  "select-a-role": "Select a role"
+  "select-a-role": "Select a role",
+  "mark-as-read": "Mark as read",
+  "mark-all-as-read": "Mark all as read"
 }

@@ -1,20 +1,13 @@
 import { axios } from '@/plugins'
 import type { Notification } from '@/types'
 import { defineStore } from 'pinia'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 
 const endpoint = 'notifications'
 
 export const useNotificationStore = defineStore(endpoint, () => {
   const notifications = ref<Notification[]>([])
-  // const page = ref<number>(1)
-
-  // const params = (page: string) => {
-  //   const params = new URLSearchParams()
-  //   return params.append('page', page)
-  // }
-
-  const getNotificationsCount = computed(() => notifications.value?.length)
+  const readNotifications = new Map<Notification['id'], Notification>()
 
   const fetch = () => {
     return new Promise((resolve, reject) => {
@@ -29,18 +22,36 @@ export const useNotificationStore = defineStore(endpoint, () => {
     })
   }
 
-  const markAsRead = (id: number) => {
-    return new Promise((resolve, reject) => {
-      axios.post(`notifications/markAsRead`, { id }).then(
-        () => {
-          notifications.value = notifications.value?.filter((not) => not.id !== id)
+  const markAsRead = (ids: Notification['pivot']['id'][]) => {
+    filterOutNotifications(ids)
 
+    return new Promise((resolve, reject) => {
+      axios.post(`notifications/mark_as_read`, { ids }).then(
+        () => {
+          readNotifications.clear()
           resolve(true)
         },
-        () => reject()
+        () => {
+          notifications.value = [
+            ...notifications.value,
+            ...Array.from(readNotifications.values())
+          ].sort((a, b) => b.id - a.id)
+
+          reject()
+        }
       )
     })
   }
 
-  return { notifications, getNotificationsCount, fetch, markAsRead }
+  const filterOutNotifications = (ids: Notification['pivot']['id'][]) => {
+    ids.forEach((id) => {
+      const not = notifications.value.find((el) => el.id === id)
+
+      if (not) readNotifications.set(id, not)
+    })
+
+    notifications.value = notifications.value.filter((el) => !ids.includes(el.id))
+  }
+
+  return { notifications, fetch, markAsRead, filterOutNotifications }
 })

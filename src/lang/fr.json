@@ -98,5 +98,7 @@
   "suggestions": "Suggestions",
   "expand-row": "Développer la ligne",
   "select-a-role": "Sélectionnez un rôle",
-  "role": "Rôle"
+  "role": "Rôle",
+  "mark-as-read": "Marquer comme lu",
+  "mark-all-as-read": "Marquer Tout comme lu"
 }

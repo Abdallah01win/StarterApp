@@ -31,8 +31,8 @@ export type Notification = {
   message: string
   pivot: {
     readonly id: number
-    userId: Pick<User, 'id'>
-    notificationId: Pick<Notification, 'id'>
+    userId: User['id']
+    notificationId: Notification['id']
     createdAt: Date
   }
 }
