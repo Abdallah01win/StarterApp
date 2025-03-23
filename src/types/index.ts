@@ -2,6 +2,8 @@ import type { ResponseCodes } from '@/helpers'
 import Pusher from 'pusher-js'
 import type { Ref } from 'vue'
 
+import type { User } from './user'
+
 export * from './components'
 export * from './dashboard'
 export * from './user'
@@ -25,8 +27,14 @@ export interface Route {
 
 export type Notification = {
   readonly id: number
-  data: Record<string, string | number>
-  createdAt: Date
+  title: string
+  message: string
+  pivot: {
+    readonly id: number
+    userId: Pick<User, 'id'>
+    notificationId: Pick<Notification, 'id'>
+    createdAt: Date
+  }
 }
 
 export interface LoginForm {

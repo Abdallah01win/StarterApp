@@ -55,7 +55,7 @@ export enum BroadcastChannels {
 }
 
 export enum BroadcastEvents {
-  GENERAL = "GeneralEvent"
+  GENERAL = 'GeneralEvent'
 }
 
 export const asideSizes = {

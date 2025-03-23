@@ -3,12 +3,31 @@ import type { Notification } from '@/types'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 
-export const useNotificationStore = defineStore('notifications', () => {
+const endpoint = 'notifications'
+
+export const useNotificationStore = defineStore(endpoint, () => {
   const notifications = ref<Notification[]>([])
+  // const page = ref<number>(1)
+
+  // const params = (page: string) => {
+  //   const params = new URLSearchParams()
+  //   return params.append('page', page)
+  // }
 
   const getNotificationsCount = computed(() => notifications.value?.length)
 
-  const setNotifications = (nots: Notification[]) => (notifications.value = nots)
+  const fetch = () => {
+    return new Promise((resolve, reject) => {
+      axios.get(endpoint).then(
+        ({ data }) => {
+          notifications.value = data
+
+          resolve(true)
+        },
+        () => reject(null)
+      )
+    })
+  }
 
   const markAsRead = (id: number) => {
     return new Promise((resolve, reject) => {
@@ -23,5 +42,5 @@ export const useNotificationStore = defineStore('notifications', () => {
     })
   }
 
-  return { notifications, getNotificationsCount, setNotifications, markAsRead }
+  return { notifications, getNotificationsCount, fetch, markAsRead }
 })

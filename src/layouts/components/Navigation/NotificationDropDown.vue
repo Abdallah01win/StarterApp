@@ -22,6 +22,7 @@ const notificationStore = useNotificationStore()
 
 const echo = getEchoInstance()
 
+const loading = ref(false)
 const loadingNotifications = ref<number[]>([])
 
 const isLoading = (id: number) => loadingNotifications.value.includes(id)
@@ -39,11 +40,21 @@ const markAsRead = (id: number) => {
     loadingNotifications.value = loadingNotifications.value.filter((not) => not !== id)
   })
 }
+
+const fetchNotifications = (e: any) => {
+  if (e && !notificationStore.notifications.length) {
+    loading.value = true
+
+    notificationStore.fetch().finally(() => {
+      loading.value = false
+    })
+  }
+}
 </script>
 
 <template>
   <Tooltip>
-    <DropdownMenu>
+    <DropdownMenu @update:open="fetchNotifications">
       <TooltipTrigger as-child>
         <DropdownMenuTrigger>
           <Button variant="ghost" size="icon" class="cursor-pointer">
@@ -51,10 +62,10 @@ const markAsRead = (id: number) => {
               <Bell class="size-4" />
 
               <Badge
-                v-if="notificationStore.getNotificationsCount"
+                v-if="authStore.user?.notificationsCount"
                 class="absolute -top-2 -right-2.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full p-0 text-[10px]"
               >
-                {{ notificationStore.getNotificationsCount }}
+                {{ authStore.user?.notificationsCount }}
               </Badge>
             </div>
             <span class="sr-only">{{ t('notifications') }}</span>
@@ -64,10 +75,10 @@ const markAsRead = (id: number) => {
       </TooltipTrigger>
 
       <DropdownMenuContent class="min-w-96">
-        <DropdownMenuLabel class="text-center"> {{ t('notifications') }}</DropdownMenuLabel>
+        <DropdownMenuLabel class="text-center">{{ t('notifications') }}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <div v-if="notificationStore.getNotificationsCount">
+          <div v-if="notificationStore.getNotificationsCount" class="max-h-[350px]">
             <div
               v-for="not in notificationStore.notifications"
               :key="not?.id"
@@ -85,19 +96,20 @@ const markAsRead = (id: number) => {
                 </Button>
 
                 <div class="flex flex-col">
-                  <div class="mb-0.5">{{ not.data }}</div>
+                  <div class="mb-0.5">{{ not.title }}</div>
                   <div class="text-muted-foreground text-xs">
-                    {{ formatDate(not.createdAt, DateFormats.LONG) }}
+                    {{ formatDate(not.pivot.createdAt, DateFormats.LONG) }}
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div v-else>
-            <div class="text-muted-foreground py-3 text-center text-sm">
+          <div v-else class="text-muted-foreground flex justify-center py-3 text-sm">
+            <div v-if="!loading">
               {{ t('no-notifications') }}
             </div>
+            <Loader2 v-else class="h-8 w-8 animate-spin" />
           </div>
         </DropdownMenuGroup>
       </DropdownMenuContent>

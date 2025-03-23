@@ -8,7 +8,7 @@ import { ref } from 'vue'
 import { useNotificationStore } from './notificationStore'
 
 export const useAuthStore = defineStore('auth', () => {
-  const notificationStore = useNotificationStore()
+  const notificationsStore = useNotificationStore()
 
   const user = ref<InitUser | null>(null)
   const loading = ref(false)
@@ -38,7 +38,6 @@ export const useAuthStore = defineStore('auth', () => {
           .get<InitUser>('init_user')
           .then(({ data }) => {
             user.value = data
-            notificationStore.setNotifications(data?.notifications)
 
             resolve(data)
           })
@@ -58,8 +57,9 @@ export const useAuthStore = defineStore('auth', () => {
       axios.post('logout').then(
         () => {
           user.value = null
-          Cookies.remove('token')
+          notificationsStore.notifications = []
 
+          Cookies.remove('token')
           router.push('/')
         },
         () => reject()

@@ -13,12 +13,12 @@ export type User = {
   name: string
   email: string
   role: UserRoles
-  created_at: string
+  createdAt: string
 }
 
 export type UserList = Pick<User, 'id' | 'name'>
 
-export interface InitUser extends Omit<User, 'created_at'> {
+export interface InitUser extends Omit<User, 'createdAt'> {
   permissions?: string[]
-  notifications: any[]
+  notificationsCount: number
 }
