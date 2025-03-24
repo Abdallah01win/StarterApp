@@ -13,8 +13,8 @@ import {
 import { FormControl, FormField, FormItem } from '@/components/ui/form'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
-import { BroadcastChannels, BroadcastEvents, DateFormats, formatDate } from '@/helpers'
-import { getEchoInstance, t, z } from '@/plugins'
+import { DateFormats, formatDate } from '@/helpers'
+import { t, z } from '@/plugins'
 import { useAuthStore } from '@/stores/authStore'
 import { useNotificationStore } from '@/stores/notificationStore'
 import { toTypedSchema } from '@vee-validate/zod'
@@ -27,16 +27,8 @@ import { watch } from 'vue'
 const authStore = useAuthStore()
 const notificationStore = useNotificationStore()
 
-const echo = getEchoInstance()
-
 const loading = ref(false)
 const selectAll = ref(false)
-
-echo
-  .private(`${BroadcastChannels.NOTIFICATIONS}.${authStore.user?.id}`)
-  .listen(BroadcastEvents.GENERAL, (el: Notification) => {
-    console.log(el)
-  })
 
 const validationSchema = toTypedSchema(
   z.object({
