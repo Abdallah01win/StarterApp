@@ -29,22 +29,22 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <main class="relative flex h-screen w-full flex-col items-center justify-center bg-background">
+  <main class="bg-background relative flex h-screen w-full flex-col items-center justify-center">
     <div class="text-center">
       <h1 class="relative">
-        <span class="text-[150px] font-bold text-primary/10 lg:text-[250px]">404</span>
+        <span class="text-primary/10 text-[150px] font-bold lg:text-[250px]">404</span>
         <span
-          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold text-foreground lg:text-6xl"
+          class="text-foreground absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold lg:text-6xl"
         >
           Oops!
         </span>
       </h1>
 
       <div class="mt-8 max-w-lg px-4">
-        <h2 class="mb-4 text-lg font-semibold text-foreground">
+        <h2 class="text-foreground mb-4 text-lg font-semibold">
           {{ t('404-description') }} {{ remainingTime }}s
         </h2>
-        <p class="mb-8 text-sm text-muted-foreground">
+        <p class="text-muted-foreground mb-8 text-sm">
           {{ t('404-detailed-desc') }}
         </p>
 

@@ -6,7 +6,7 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [VueRouter(), vue(), tailwindcss()],
+  plugins: [VueRouter({ exclude: ['**/components/*.vue'] }), vue(), tailwindcss()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')

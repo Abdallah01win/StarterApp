@@ -40,7 +40,7 @@ const getStatDiff = () => {
         <div class="text-2xl font-bold">
           {{ formatValue ? formatNumber(data?.current || 0) : data?.current }} {{ suffix ?? '' }}
         </div>
-        <p class="text-xs text-muted-foreground">{{ getStatDiff() }}</p>
+        <p class="text-muted-foreground text-xs">{{ getStatDiff() }}</p>
       </div>
     </CardContent>
   </Card>

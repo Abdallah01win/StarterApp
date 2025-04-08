@@ -2,10 +2,10 @@ import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 
 import App from './App.vue'
-import './style.css'
 import { hasPermission } from './helpers'
 import { colorMode, i18n } from './plugins'
 import router from './router'
+import './style.css'
 
 const { key, themes, theme, updateTheme } = colorMode
 

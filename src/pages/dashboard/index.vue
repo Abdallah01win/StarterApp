@@ -7,11 +7,9 @@ import { useStatsStore } from '@/stores/statsStore'
 import { getLocalTimeZone, today } from '@internationalized/date'
 import { FileBox, Loader2, PackageCheck, ReceiptText, Wallet } from 'lucide-vue-next'
 import { storeToRefs } from 'pinia'
-import { type DateRange as DateRangeType } from 'radix-vue'
+import { type DateRange as DateRangeType } from 'reka-ui'
 import { type Ref, onBeforeMount, ref } from 'vue'
 
-import DriversCard from './components/DriversCard.vue'
-import FuelCard from './components/FuelCard.vue'
 import StatsCard from './components/StatsCard.vue'
 
 const statsStore = useStatsStore()
@@ -69,19 +67,19 @@ onBeforeMount(() => fetchStats())
           :format-value="true"
           suffix="DH"
         >
-          <Wallet class="h-4 w-4 text-muted-foreground" />
+          <Wallet class="text-muted-foreground h-4 w-4" />
         </StatsCard>
 
         <StatsCard :loading :data="stats?.ordered_quantity" :title="t('ordered-quantity')">
-          <FileBox class="h-4 w-4 text-muted-foreground" />
+          <FileBox class="text-muted-foreground h-4 w-4" />
         </StatsCard>
 
         <StatsCard :loading :data="stats?.delivered_quantity" :title="t('delivered-quantity')">
-          <PackageCheck class="h-4 w-4 text-muted-foreground" />
+          <PackageCheck class="text-muted-foreground h-4 w-4" />
         </StatsCard>
 
         <StatsCard :loading :data="stats?.invoiced_quantity" :title="t('invoiced-quantity')">
-          <ReceiptText class="h-4 w-4 text-muted-foreground" />
+          <ReceiptText class="text-muted-foreground h-4 w-4" />
         </StatsCard>
       </div>
     </div>

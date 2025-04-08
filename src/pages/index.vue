@@ -49,7 +49,7 @@ const onSubmit = form.handleSubmit(async (values) => {
       <div class="mx-auto grid w-[400px] gap-6">
         <div class="grid gap-2 text-center">
           <h1 class="text-3xl font-bold">{{ t('login') }}</h1>
-          <p class="text-balance text-muted-foreground">
+          <p class="text-muted-foreground text-balance">
             {{ t('loginDescription') }}
           </p>
         </div>
@@ -94,7 +94,7 @@ const onSubmit = form.handleSubmit(async (values) => {
 
     <div class="hidden h-screen lg:block">
       <img
-        src="@/assets/images/Login.webp"
+        src="@/assets/images/placeholder.svg"
         alt="Background Image"
         class="h-full w-full object-cover brightness-[.6] grayscale"
       />
