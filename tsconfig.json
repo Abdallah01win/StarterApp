@@ -5,6 +5,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "moduleResolution": "Bundler",
+    "types": ["unplugin-vue-router/client"]
   }
 }
