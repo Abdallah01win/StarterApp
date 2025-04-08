@@ -1,0 +1,24 @@
+name: Prettier
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Prettier
+        run: npm install --save-dev prettier
+
+      - name: Run Prettier
+        run: npx prettier --check .

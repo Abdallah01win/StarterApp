@@ -1,0 +1,24 @@
+name: TypeCheck
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  type-check:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run TypeCheck
+        run: npm run type-check

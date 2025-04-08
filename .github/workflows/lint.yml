@@ -1,0 +1,24 @@
+name: ESLint
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install ESLint
+        run: npm install --save-dev eslint
+
+      - name: Run ESLint
+        run: npm run lint
