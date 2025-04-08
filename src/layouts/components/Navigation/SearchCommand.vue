@@ -45,11 +45,11 @@ const handleOpenChange = () => {
       @click="handleOpenChange"
     />
     <span class="absolute inset-y-0 start-0 flex items-center justify-center px-2">
-      <Search class="size-5 text-muted-foreground" />
+      <Search class="text-muted-foreground size-5" />
     </span>
     <span class="absolute inset-y-0 end-0 flex items-center justify-center px-2">
       <CommandShortcut>
-        <span class="flex items-center text-muted-foreground">
+        <span class="text-muted-foreground flex items-center">
           <CommandIcon class="size-3.5" />
           <span class="font-medium">+Q</span>
         </span>

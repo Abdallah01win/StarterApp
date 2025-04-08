@@ -152,7 +152,7 @@ const columnsLength = computed(() => table.getAllColumns().length)
                 <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
               </TableCell>
             </TableRow>
-            <TableRow class="w-full bg-muted/50">
+            <TableRow class="bg-muted/50 w-full">
               <TableCell
                 v-if="childCols && childDataKey && row.getIsExpanded()"
                 :colspan="row.getAllCells().length"

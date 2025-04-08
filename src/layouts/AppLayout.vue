@@ -19,7 +19,7 @@ const hasLayout = computed(() => {
 
 <template>
   <Transition>
-    <div v-if="authStore.loading" class="flex h-screen items-center justify-center bg-background">
+    <div v-if="authStore.loading" class="bg-background flex h-screen items-center justify-center">
       <Loader2 class="h-9 w-9 animate-spin" />
     </div>
   </Transition>

@@ -43,7 +43,7 @@ const markAsRead = (id: string) => {
 
               <Badge
                 v-if="notificationStore.getNotificationsCount"
-                class="absolute -right-2.5 -top-2 flex h-4 w-4 shrink-0 items-center justify-center rounded-full p-0 text-[10px]"
+                class="absolute -top-2 -right-2.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full p-0 text-[10px]"
               >
                 {{ notificationStore.getNotificationsCount }}
               </Badge>
@@ -77,7 +77,7 @@ const markAsRead = (id: string) => {
 
                 <div class="flex flex-col">
                   <div class="mb-0.5">{{ notificationStore.formatNotification(not.data) }}</div>
-                  <div class="text-xs text-muted-foreground">
+                  <div class="text-muted-foreground text-xs">
                     {{ formatDate(not.created_at, DateFormats.LONG_FORMAT) }}
                   </div>
                 </div>
@@ -86,7 +86,7 @@ const markAsRead = (id: string) => {
           </div>
 
           <div v-else>
-            <div class="py-3 text-center text-sm text-muted-foreground">
+            <div class="text-muted-foreground py-3 text-center text-sm">
               {{ t('no-notifications') }}
             </div>
           </div>

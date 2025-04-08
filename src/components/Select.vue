@@ -53,7 +53,7 @@ const emitUpdate = (e: string) => {
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <div v-if="options.length === 0" class="text-center text-sm text-muted-foreground">
+          <div v-if="options.length === 0" class="text-muted-foreground text-center text-sm">
             {{ t('no-data') }}
           </div>
           <SelectItem

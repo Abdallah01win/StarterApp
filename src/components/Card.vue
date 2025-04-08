@@ -20,7 +20,7 @@ defineProps<{
 
 <template>
   <Card class="m-4">
-    <CardHeader v-if="title || description || $slots.headerAction" class="px-6 pb-3 pt-6">
+    <CardHeader v-if="title || description || $slots.headerAction" class="px-6 pt-6 pb-3">
       <div class="flex items-center justify-between">
         <div>
           <CardTitle v-if="title" class="mb-1.5">

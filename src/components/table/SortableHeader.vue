@@ -31,9 +31,9 @@ const isSorted = computed(
       <ArrowUpDown v-if="!isSorted" class="h-4 w-4" />
       <ArrowDownWideNarrow
         v-else-if="sorts.includes(`-${props.colName}`)"
-        class="h-4 w-4 text-primary"
+        class="text-primary h-4 w-4"
       />
-      <ArrowDownNarrowWide v-else class="h-4 w-4 text-primary" />
+      <ArrowDownNarrowWide v-else class="text-primary h-4 w-4" />
     </Button>
   </div>
 </template>

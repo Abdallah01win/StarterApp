@@ -98,7 +98,7 @@ defineExpose({ IsSomeRowsSelected, selectedRows })
                 <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
               </TableCell>
             </TableRow>
-            <TableRow class="w-full bg-muted/50">
+            <TableRow class="bg-muted/50 w-full">
               <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id" class="p-0" />
             </TableRow>
           </template>

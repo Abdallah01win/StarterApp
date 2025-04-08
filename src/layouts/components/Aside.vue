@@ -46,7 +46,7 @@ const onExpand = () => {
       <div class="flex items-center text-sm">
         <Waypoints class="h-5 w-5" />
         <span v-if="!isCollapsed" class="ml-1">
-          <span class="font-medium text-muted-foreground">Logist</span>
+          <span class="text-muted-foreground font-medium">Logist</span>
           <span class="font-semibold">Xpert</span>
         </span>
       </div>
@@ -96,7 +96,7 @@ const onExpand = () => {
                   size: 'sm'
                 }),
                 link.name === currentRouteName &&
-                  'dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white',
+                  'dark:bg-muted dark:hover:bg-muted dark:text-white dark:hover:text-white',
                 'w-full justify-start'
               )
             "
