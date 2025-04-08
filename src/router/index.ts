@@ -1,12 +1,9 @@
-import { createPinia } from 'pinia'
 import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from 'vue-router/auto-routes'
 
 import { authMiddleware, pageTitleMiddleware, permissionMiddleware } from './middleware'
 
 export * from './utils'
-
-createPinia()
 
 const router = createRouter({
   history: createWebHistory(),
