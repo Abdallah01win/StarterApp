@@ -1,9 +1,11 @@
-import { DateFormats } from '@/helpers'
-import { dayjs, locale, t } from '@/plugins'
+import { DateFormats, toasterOptions } from '@/helpers'
+import { dayjs, locale } from '@/plugins'
 import { useAuthStore } from '@/stores/authStore'
 import type { Options } from '@/types'
 import type { Ref } from 'vue'
 import { toast } from 'vue-sonner'
+
+import { ResponseCodes } from './constants'
 
 export * from './constants'
 
@@ -20,9 +22,10 @@ export const formatNumber = (number: number, decimal: number = 2) => {
     .normalize('NFKC')
 }
 
-export const showToastError = (msg?: string) => {
-  toast.error(t('an-error-occurred'), {
-    description: msg || t('something-went-wrong')
+export const showToaster = (status: ResponseCodes) => {
+  const toastOpt = toasterOptions.find((opt) => opt.code === status)!
+  toast[toastOpt.type](toastOpt.title, {
+    description: toastOpt.description
   })
 }
 

@@ -1,4 +1,4 @@
-import { showToastError } from '@/helpers'
+import { ResponseCodes, showToaster } from '@/helpers'
 import { locale } from '@/plugins'
 import router from '@/router'
 import { useAuthStore } from '@/stores/authStore'
@@ -25,20 +25,22 @@ Axios.interceptors.request.use((config) => {
 })
 
 Axios.interceptors.response.use(
-  (request) => request,
+  (response) => {
+    const acceptedCodes = [ResponseCodes.CREATED, ResponseCodes.ACCEPTED, ResponseCodes.NO_CONTENT]
+    if (acceptedCodes.includes(response.status)) showToaster(response.status)
+
+    return response
+  },
   (error) => {
     const authStore = useAuthStore()
 
-    const { data, status } = error.response
-
-    if (status === 401) {
+    if (error.response.status === ResponseCodes.UNAUTHORIZED) {
       authStore.user = null
       Cookies.remove('token')
-
       router.push('/')
     }
 
-    showToastError(status !== 500 && data.message)
+    showToaster(ResponseCodes.BAD_REQUEST)
 
     return Promise.reject(error)
   }

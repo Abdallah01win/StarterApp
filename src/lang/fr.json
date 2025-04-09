@@ -209,5 +209,9 @@
   "enter-new-password": "Saisissez nouveau mot de passe",
   "confirm-new-password": "Confirmer le nouveau mot de passe",
   "quantity-liter": "Quantity (L)",
-  "404-detailed-desc": "La page que vous cherchez a ete transferee, supprimée ou na jamais existait. Vous pouvez toujours retourner au tableau de bord."
+  "404-detailed-desc": "La page que vous cherchez a ete transferee, supprimée ou na jamais existait. Vous pouvez toujours retourner au tableau de bord.",
+  "unauthorized-request": "Cette demande n'est pas autorisée.",
+  "created-successfully": "Élément créé avec succès.",
+  "updated-successfully": "Élément modifié avec succès.",
+  "deleted-successfully": "Élément supprimé avec succès."
 }

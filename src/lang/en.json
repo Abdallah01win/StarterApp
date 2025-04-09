@@ -209,5 +209,9 @@
   "enter-new-password": "Enter new password",
   "confirm-new-password": "Confirm new password",
   "quantity-liter": "Quantity (L)",
-  "404-detailed-desc": "The page you're looking for has either been moved, deleted, or never existed. You can always go back home."
+  "404-detailed-desc": "The page you're looking for has either been moved, deleted, or never existed. You can always go back home.",
+  "unauthorized-request": "This request is unauthorized.",
+  "created-successfully": "Element created successfuly.",
+  "updated-successfully": "Element updated successfully.",
+  "deleted-successfully": "Element deleted successfully."
 }

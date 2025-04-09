@@ -1,4 +1,9 @@
+import { t } from '@/plugins'
+import type { ToasterOption } from '@/types'
+
 export const phoneRegex = new RegExp(/^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/)
+
+export const pageSizeOptions = ['10', '20', '50', '100', '200', '500', '1000']
 
 export enum DateFormats {
   DISPLAY = 'DD/MM/YYYY',
@@ -6,7 +11,44 @@ export enum DateFormats {
   LONG = 'LL'
 }
 
-export const pageSizeOptions = ['10', '20', '50', '100', '200', '500', '1000']
+export enum ResponseCodes {
+  CREATED = 201,
+  ACCEPTED = 202,
+  NO_CONTENT = 204,
+  BAD_REQUEST = 400,
+  UNAUTHORIZED = 401,
+  INTERNAL_SERVER_ERROR = 500
+}
+
+export const toasterOptions: ToasterOption[] = [
+  {
+    code: ResponseCodes.CREATED,
+    type: 'success',
+    title: t('created-successfully')
+  },
+  {
+    code: ResponseCodes.ACCEPTED,
+    type: 'success',
+    title: t('updated-successfully')
+  },
+  {
+    code: ResponseCodes.NO_CONTENT,
+    type: 'success',
+    title: t('deleted-successfully')
+  },
+  {
+    code: ResponseCodes.BAD_REQUEST,
+    type: 'error',
+    title: t('an-error-occurred'),
+    description: t('something-went-wrong')
+  },
+  {
+    code: ResponseCodes.UNAUTHORIZED,
+    type: 'error',
+    title: t('unauthorized'),
+    description: t('unauthorized-request')
+  }
+]
 
 export const asideSizes = {
   collapsed: 4,

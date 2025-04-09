@@ -1,5 +1,4 @@
-import { showToastError } from '@/helpers'
-import { t } from '@/plugins'
+import { ResponseCodes, showToaster } from '@/helpers'
 import { useAuthStore } from '@/stores/authStore'
 import type { NavigationGuardNext, RouteLocation } from 'vue-router'
 
@@ -12,7 +11,7 @@ const authMiddleware = async (to: RouteLocation, _: RouteLocation, next: Navigat
   authStore.resetLoading()
 
   if (requiresAuth && !isAuthenticated) {
-    showToastError(t('unauthorized'))
+    showToaster(ResponseCodes.UNAUTHORIZED)
 
     return next({ name: '/' })
   }

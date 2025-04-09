@@ -1,10 +1,10 @@
+import type { ResponseCodes } from '@/helpers'
 import type { ColumnDef } from '@tanstack/vue-table'
 import type { CalendarRootProps, DateRange, RangeCalendarRootProps, SelectRootProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
 
 export * from './dashboard'
 export * from './user'
-export * from './client'
 
 export interface Route {
   name: string
@@ -37,6 +37,13 @@ export interface MetaData {
 }
 
 export type Options<T> = { label: string; value: T; disabled?: boolean }[]
+
+export type ToasterOption = {
+  code: ResponseCodes
+  type: 'success' | 'error'
+  title: string
+  description?: string
+}
 
 type CustomSelectProps = {
   options: Options<number | string>

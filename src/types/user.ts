@@ -1,4 +1,4 @@
-import type { Notification, Options } from './index'
+import type { Options } from './index'
 
 export enum UserTypes {
   SUPERADMIN,
@@ -18,7 +18,7 @@ export interface User {
 
 export interface InitUser extends Omit<User, 'created_at'> {
   permissions?: string[]
-  notifications: Notification[]
+  notifications: any[]
 }
 
 export type UserFilters = {

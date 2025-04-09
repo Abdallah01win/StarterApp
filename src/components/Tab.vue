@@ -1,6 +1,6 @@
 <script setup lang="ts" generic="TData extends { id: number }, TValue, TChildData, TChildValue">
 import Card from '@/components/Card.vue'
-import Pagination from '@/components/table/Pagination.vue'
+// import Pagination from '@/components/table/Pagination.vue'
 import Table from '@/components/table/Table.vue'
 import { Button } from '@/components/ui/button'
 import { t } from '@/plugins'
@@ -67,7 +67,7 @@ onBeforeUnmount(() => {
     </template>
 
     <template #cardFooter>
-      <Pagination @refresh="emit('refresh')" />
+      <!-- <Pagination @refresh="emit('refresh')" /> -->
     </template>
   </Card>
 
