@@ -10,7 +10,7 @@ import {
 import { cn } from '@/lib/utils'
 import { t } from '@/plugins'
 import type { SelectProps } from '@/types'
-import { type SelectRootEmits, useForwardPropsEmits } from 'radix-vue'
+import { type SelectRootEmits, useForwardPropsEmits } from 'reka-ui'
 import { computed } from 'vue'
 
 const props = withDefaults(defineProps<SelectProps>(), {

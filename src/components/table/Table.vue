@@ -9,11 +9,11 @@ import {
   TableHeader,
   TableRow
 } from '@/components/ui/table'
-import { formatDate, hasPermission } from '@/helpers'
+import { DateFormats, formatDate, hasPermission } from '@/helpers'
 import { cn, valueUpdater } from '@/lib/utils'
 import { t } from '@/plugins'
 import { routeInfo } from '@/router'
-import { DateFormats, type TableCompEmits, type TableCompProps } from '@/types'
+import type { TableCompEmits, TableCompProps } from '@/types'
 import { type ColumnDef, ExpandedState } from '@tanstack/vue-table'
 import { FlexRender, getCoreRowModel, getExpandedRowModel, useVueTable } from '@tanstack/vue-table'
 import { ChevronRight, Loader2 } from 'lucide-vue-next'
@@ -28,8 +28,6 @@ const props = defineProps<TableCompProps<TData, TValue, TChildData, TChildValue>
 const emit = defineEmits<TableCompEmits<TData>>()
 
 const expanded = ref<ExpandedState>({})
-
-const { DATE_FORMAT } = DateFormats
 
 const table = useVueTable({
   get data() {
@@ -79,7 +77,7 @@ const table = useVueTable({
     const createdAtCol: ColumnDef<TData, TValue> = {
       accessorKey: 'created_at',
       header: () => h(SortableHeader, { colName: 'created_at', header: 'created-at' }),
-      cell: ({ cell }) => h('div', formatDate(cell.renderValue(), DATE_FORMAT)),
+      cell: ({ cell }) => h('div', formatDate(cell.renderValue(), DateFormats.DISPLAY)),
       enableSorting: true
     }
 

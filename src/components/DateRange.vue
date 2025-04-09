@@ -7,7 +7,7 @@ import { locale, t } from '@/plugins'
 import type { CustomCalendarRootProps } from '@/types'
 import { DateFormatter, getLocalTimeZone } from '@internationalized/date'
 import { Calendar as CalendarIcon } from 'lucide-vue-next'
-import { type DateRange, type RangeCalendarRootEmits, useForwardPropsEmits } from 'radix-vue'
+import { type DateRange, type RangeCalendarRootEmits, useForwardPropsEmits } from 'reka-ui'
 import { computed } from 'vue'
 
 const props = withDefaults(defineProps<CustomCalendarRootProps>(), {

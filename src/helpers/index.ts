@@ -1,14 +1,13 @@
+import { DateFormats } from '@/helpers'
 import { dayjs, locale, t } from '@/plugins'
 import { useAuthStore } from '@/stores/authStore'
-import { DateFormats, type Options } from '@/types'
-import { type Ref } from 'vue'
+import type { Options } from '@/types'
+import type { Ref } from 'vue'
 import { toast } from 'vue-sonner'
 
 export * from './constants'
 
-const { API_DATE_FORMAT } = DateFormats
-
-export const formatDate = (date: unknown, format: DateFormats = API_DATE_FORMAT) => {
+export const formatDate = (date: unknown, format: DateFormats = DateFormats.API) => {
   return dayjs(String(date)).format(format)
 }
 

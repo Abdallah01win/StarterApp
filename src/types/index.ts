@@ -1,10 +1,5 @@
 import type { ColumnDef } from '@tanstack/vue-table'
-import type {
-  CalendarRootProps,
-  DateRange,
-  RangeCalendarRootProps,
-  SelectRootProps
-} from 'radix-vue'
+import type { CalendarRootProps, DateRange, RangeCalendarRootProps, SelectRootProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
 
 export * from './dashboard'
@@ -76,12 +71,6 @@ export type StepperFormProps = {
   steps: { step: number; title: string; description: string }[]
   loading: boolean
   isEdit: boolean
-}
-
-export enum DateFormats {
-  DATE_FORMAT = 'DD/MM/YYYY',
-  API_DATE_FORMAT = 'YYYY-MM-DD',
-  LONG_FORMAT = 'LL'
 }
 
 export interface TableCompProps<T, V, CT, CV> {

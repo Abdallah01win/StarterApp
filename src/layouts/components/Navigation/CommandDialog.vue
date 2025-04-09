@@ -12,7 +12,7 @@ import { DialogDescription, DialogTitle } from '@/components/ui/dialog'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { t } from '@/plugins'
 import { routesMap } from '@/router'
-import { VisuallyHidden } from 'radix-vue'
+import { VisuallyHidden } from 'reka-ui'
 
 const { open } = defineProps<{
   open: boolean

@@ -10,10 +10,9 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
-import { formatDate } from '@/helpers'
+import { DateFormats, formatDate } from '@/helpers'
 import { t } from '@/plugins'
 import { useNotificationStore } from '@/stores/notificationStore'
-import { DateFormats } from '@/types'
 import { Bell, Check, Loader2 } from 'lucide-vue-next'
 import { ref } from 'vue'
 
@@ -78,7 +77,7 @@ const markAsRead = (id: string) => {
                 <div class="flex flex-col">
                   <div class="mb-0.5">{{ notificationStore.formatNotification(not.data) }}</div>
                   <div class="text-muted-foreground text-xs">
-                    {{ formatDate(not.created_at, DateFormats.LONG_FORMAT) }}
+                    {{ formatDate(not.created_at, DateFormats.LONG) }}
                   </div>
                 </div>
               </div>

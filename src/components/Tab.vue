@@ -8,7 +8,7 @@ import { routeInfo } from '@/router'
 import { useParamStore } from '@/stores/paramStore'
 import type { TabCompEmits, TableCompProps } from '@/types'
 import { CirclePlus } from 'lucide-vue-next'
-import { useForwardPropsEmits } from 'radix-vue'
+import { useForwardPropsEmits } from 'reka-ui'
 import { defineAsyncComponent, onBeforeUnmount, ref } from 'vue'
 
 const DeleteDialog = defineAsyncComponent(() => import('@/components/table/DeleteRowDialog.vue'))

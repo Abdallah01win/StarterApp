@@ -2,13 +2,13 @@
 import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { formatDate } from '@/helpers'
+import { DateFormats, formatDate } from '@/helpers'
 import { cn } from '@/lib/utils'
 import { locale, t } from '@/plugins'
-import { DateFormats, type DatePickerCustomProps } from '@/types'
+import type { DatePickerCustomProps } from '@/types'
 import { parseDate } from '@internationalized/date'
 import { Calendar as CalendarIcon } from 'lucide-vue-next'
-import { type CalendarRootEmits, useForwardPropsEmits } from 'radix-vue'
+import { type CalendarRootEmits, useForwardPropsEmits } from 'reka-ui'
 import { computed } from 'vue'
 
 const props = withDefaults(defineProps<DatePickerCustomProps>(), {
@@ -19,8 +19,6 @@ const props = withDefaults(defineProps<DatePickerCustomProps>(), {
 })
 
 const emits = defineEmits<CalendarRootEmits>()
-
-const { DATE_FORMAT } = DateFormats
 
 const delegatedProps = computed(() => {
   const { modelValue, ...delegated } = props
@@ -48,7 +46,9 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       >
         <CalendarIcon v-if="hasIcon" class="mr-2 h-4 w-4" />
         {{
-          forwarded.modelValue ? formatDate(forwarded.modelValue, DATE_FORMAT) : t('pick-a-date')
+          forwarded.modelValue
+            ? formatDate(forwarded.modelValue, DateFormats.DISPLAY)
+            : t('pick-a-date')
         }}
       </Button>
     </PopoverTrigger>

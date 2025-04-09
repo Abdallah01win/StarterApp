@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils'
 import { t } from '@/plugins'
 import type { ComboboxProps } from '@/types'
 import { Check, ChevronsUpDown } from 'lucide-vue-next'
-import type { ComboboxRootEmits } from 'radix-vue'
+import type { ComboboxRootEmits } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
 
 const props = defineProps<ComboboxProps & { class?: HTMLAttributes['class'] }>()
