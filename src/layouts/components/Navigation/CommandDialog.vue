@@ -12,7 +12,6 @@ import { DialogDescription, DialogTitle } from '@/components/ui/dialog'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { t } from '@/plugins'
 import { routesMap } from '@/router'
-import { VisuallyHidden } from 'reka-ui'
 
 const { open } = defineProps<{
   open: boolean
@@ -23,9 +22,7 @@ const emit = defineEmits(['update:open'])
 
 <template>
   <CommandDialog :open @update:open="emit('update:open')">
-    <VisuallyHidden asChild>
-      <DialogTitle />
-    </VisuallyHidden>
+    <DialogTitle />
     <DialogDescription />
     <CommandInput :placeholder="t('search')" />
     <CommandList>
@@ -33,7 +30,7 @@ const emit = defineEmits(['update:open'])
         <CommandEmpty>{{ t('no-results') }}</CommandEmpty>
         <CommandGroup :heading="t('suggestions')">
           <RouterLink v-for="route in routesMap" :key="route.name" :to="route.name">
-            <CommandItem :value="t(route.name)" @select="emit('update:open')">
+            <CommandItem class="py-2" :value="t(route.name)" @select="emit('update:open')">
               {{ t(route.name) }}
             </CommandItem>
           </RouterLink>

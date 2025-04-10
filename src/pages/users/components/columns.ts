@@ -1,3 +1,4 @@
+import FilterableHeader from '@/components/table/FilterableHeader.vue'
 import Badge from '@/components/ui/badge/Badge.vue'
 import { t } from '@/plugins'
 import { useUserStore } from '@/stores/userStore'
@@ -10,7 +11,7 @@ const userStore = useUserStore()
 const columns: ColumnDef<User>[] = [
   {
     accessorKey: 'name',
-    header: () => h('div', t('name'))
+    header: () => h(FilterableHeader, { colName: 'name' })
   },
   {
     accessorKey: 'email',
@@ -18,7 +19,7 @@ const columns: ColumnDef<User>[] = [
   },
   {
     accessorKey: 'type',
-    header: () => h('div', t('type')),
+    header: () => h(FilterableHeader, { colName: 'type', options: userStore.userType }),
     cell: ({ row }) => {
       const type = Number(row.getValue('type'))
       const val = () => userStore.getUserType(type)

@@ -1,5 +1,6 @@
 import { DateFormats, toasterOptions } from '@/helpers'
 import { dayjs, locale } from '@/plugins'
+import { currentRouteName, filtersMap } from '@/router'
 import { useAuthStore } from '@/stores/authStore'
 import type { Options } from '@/types'
 import type { Ref } from 'vue'
@@ -75,6 +76,14 @@ export const hasPermission = (permission: string | undefined): boolean => {
   const permissions = authStore.user?.permissions || []
 
   return !permission || (permissions.includes(permission) && true)
+}
+
+export const getFilterName = (alias: string): string | undefined => {
+  const routeConf = filtersMap.find((el) => el.route === currentRouteName.value)
+
+  if (!routeConf) return undefined
+
+  return routeConf.filters.find((el) => el.alias === alias)?.name
 }
 
 export const enableFilterOptions = <T extends Options<any>>(options: T) =>

@@ -58,10 +58,6 @@ onBeforeUnmount(() => {
       </div>
     </template>
 
-    <template v-if="$slots.filtersContent" #filtersContent>
-      <slot name="filtersContent" />
-    </template>
-
     <template #main>
       <Table v-bind="forwarded" @delete="handleDeletion" />
     </template>

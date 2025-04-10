@@ -14,7 +14,7 @@ import { cn, valueUpdater } from '@/lib/utils'
 import { t } from '@/plugins'
 import { routeInfo } from '@/router'
 import type { TableCompEmits, TableCompProps } from '@/types'
-import { type ColumnDef, ExpandedState } from '@tanstack/vue-table'
+import type { ColumnDef, ExpandedState } from '@tanstack/vue-table'
 import { FlexRender, getCoreRowModel, getExpandedRowModel, useVueTable } from '@tanstack/vue-table'
 import { ChevronRight, Loader2 } from 'lucide-vue-next'
 import { computed, h, ref } from 'vue'
@@ -137,7 +137,7 @@ const columnsLength = computed(() => table.getAllColumns().length)
               v-if="!header.isPlaceholder"
               :render="header.column.columnDef.header"
               :props="header.getContext()"
-              @refresh="header.column.columnDef.enableSorting && emit('refresh')"
+              @refresh="emit('refresh')"
             />
           </TableHead>
         </TableRow>

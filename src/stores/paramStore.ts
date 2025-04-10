@@ -1,14 +1,14 @@
-import { pageSizeOptions } from '@/helpers'
+import { getFilterName, pageSizeOptions } from '@/helpers'
 import type { MetaData } from '@/types'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useParamStore = defineStore('params', () => {
+  const filters = new Map<string, string | number | null>()
   const perPage = ref<string>(pageSizeOptions[0])
   const page = ref<number>(1)
   const meta = ref<MetaData>()
   const sorts = ref<string[]>([])
-  const filters = ref()
 
   const getParams = (options?: { list?: boolean }) => {
     if (options?.list) return new URLSearchParams([['list', 'true']])
@@ -19,18 +19,29 @@ export const useParamStore = defineStore('params', () => {
     if (perPage.value !== pageSizeOptions[0]) params.append('per_page', perPage.value)
     if (sorts.value.length) params.append(`sort`, sorts.value.join(','))
 
-    if (filters.value) {
-      Object.entries(filters.value)
-        .filter(([, value]) => {
-          if (value && typeof value === 'object') {
-            return Object.values(value).every((val) => val !== undefined)
-          }
-          return value
-        })
-        .map(([key, value]) => params.append(`filter[${key}]`, String(value)))
-    }
+    filters.forEach((value, key) => {
+      params.append(`filter[${key}]`, String(value))
+    })
 
     return params
+  }
+
+  const setFilter = (alias: string, value?: string | number | null) => {
+    const filterName = getFilterName(alias)
+    console.log('filterName', filterName, value)
+
+    if (!filterName) return
+    if (filterName && (value || value === 0)) filters.set(filterName, value)
+  }
+
+  const hasFilter = (alias: string) => {
+    const filterName = getFilterName(alias)
+    return filterName ? filters.has(filterName) : false
+  }
+
+  const removeFilter = (alias: string) => {
+    const filterName = getFilterName(alias)
+    if (filterName) filters.delete(filterName)
   }
 
   const setPerPage = (pageSize: string) => {
@@ -39,10 +50,6 @@ export const useParamStore = defineStore('params', () => {
 
   const setPage = (nextPage: number) => {
     page.value = nextPage
-  }
-
-  const setFilters = <T>(filter: T) => {
-    filters.value = filter
   }
 
   const setSort = (sort: string) => {
@@ -68,10 +75,6 @@ export const useParamStore = defineStore('params', () => {
     page.value = 1
   }
 
-  const resetFilters = () => {
-    filters.value = undefined
-  }
-
   return {
     pageSizeOptions,
     perPage,
@@ -81,10 +84,11 @@ export const useParamStore = defineStore('params', () => {
     getParams,
     setPerPage,
     setPage,
-    setFilters,
+    setFilter,
+    removeFilter,
+    hasFilter,
     setSort,
     clearSorts,
-    resetParams,
-    resetFilters
+    resetParams
   }
 })

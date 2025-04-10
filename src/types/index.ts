@@ -42,3 +42,10 @@ export type ToasterOption = {
   title: string
   description?: string
 }
+
+export type FilterableHeaderProps = {
+  colName: string
+  header?: string
+  type?: 'string' | 'combobox'
+  options?: Options<string | number | null>
+}

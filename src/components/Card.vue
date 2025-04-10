@@ -40,7 +40,6 @@ defineProps<{
                 <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">{{ t('filters') }}</span>
               </Button>
             </PopoverTrigger>
-            <slot name="filtersContent" />
           </Popover>
         </div>
       </div>
