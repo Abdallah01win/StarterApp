@@ -55,10 +55,10 @@ const changePage = (page: number) => {
   <div class="flex w-full items-center justify-between">
     <div class="text-muted-foreground text-xs">
       <span v-if="total">
-        {{ t('showing') }} <strong>{{ paramStore.meta?.from }}-{{ paramStore.meta?.to }}</strong>
+        {{ t('showing') }} <strong>{{ paramStore.meta?.from }} - {{ paramStore.meta?.to }}</strong>
         {{ t('of') }}
       </span>
-      <strong class="ml-0.5">{{ total }}</strong>
+      <strong class="ml-1">{{ total }}</strong>
       {{ t('items') }}
     </div>
 
@@ -100,9 +100,9 @@ const changePage = (page: number) => {
         </PaginationContent>
       </Pagination>
 
-      <Select id="per-page" v-model="selectedPageSize" :default-value="selectedPageSize">
-        <SelectTrigger class="h-7 w-[100px]">
-          <SelectValue :placeholder="selectedPageSize" />
+      <Select id="per-page" v-model="selectedPageSize">
+        <SelectTrigger class="!h-7 w-[100px]">
+          <SelectValue />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>

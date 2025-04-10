@@ -19,14 +19,14 @@ defineProps<{
 </script>
 
 <template>
-  <Card class="m-4">
-    <CardHeader v-if="title || description || $slots.headerAction" class="px-6 pt-6 pb-3">
+  <Card class="m-4 gap-y-0 py-0 shadow-none">
+    <CardHeader v-if="title || description || $slots.headerAction" class="px-6 pt-4 pb-0">
       <div class="flex items-center justify-between">
         <div>
-          <CardTitle v-if="title" class="mb-1.5">
+          <CardTitle v-if="title" class="mb-/1.5 text-2xl">
             {{ t(title) }}
           </CardTitle>
-          <CardDescription v-if="description">
+          <CardDescription v-if="description" class="">
             {{ t(description) }}
           </CardDescription>
         </div>
@@ -46,11 +46,11 @@ defineProps<{
       </div>
     </CardHeader>
 
-    <CardContent class="pb-4" :class="{ 'pt-6': !title && !description }">
+    <CardContent :class="{ 'pt-6': !title && !description }">
       <slot name="main" />
     </CardContent>
 
-    <CardFooter v-if="$slots.cardFooter" class="pb-4">
+    <CardFooter v-if="$slots.cardFooter" class="py-4">
       <slot name="cardFooter" />
     </CardFooter>
   </Card>

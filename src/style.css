@@ -2,7 +2,20 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: 'GeistSans';
+  src: url('@/assets/fonts/GeistVariableVf.woff2');
+}
+
 :root {
+  --font-geist-sans: 'GeistSans';
+
+  --nav-height: 52.33px;
+  --tab-padding: 32px;
+  --main-height: calc(100vh - var(--nav-height));
+  --tab-height: calc(var(--main-height) - var(--tab-padding));
+  --table-height: calc(var(--tab-height) - 130px);
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -27,7 +40,7 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
+  --radius: 0.5rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -118,5 +131,6 @@
   }
   body {
     @apply bg-background text-foreground;
+    @apply font-[GeistSans];
   }
 }

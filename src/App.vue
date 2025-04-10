@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { Toaster } from '@/components/ui/sonner'
+import AppLayout from '@/layouts/AppLayout.vue'
 </script>
 
 <template>
-  <div>
-    <RouterView />
-  </div>
+  <AppLayout>
+    <template #tab>
+      <RouterView />
+    </template>
+  </AppLayout>
 
-  <Toaster :duration="5000" closeButton />
+  <Toaster :duration="5000" />
 </template>

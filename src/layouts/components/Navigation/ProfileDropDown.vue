@@ -44,7 +44,7 @@ const logoutUser = () => {
         <TooltipTrigger as-child>
           <DropdownMenuTrigger>
             <Avatar class="cursor-pointer">
-              <AvatarFallback class="font-semibold uppercase">
+              <AvatarFallback class="text-xs font-semibold uppercase">
                 {{ authStore.user?.name.substring(0, 2) }}
               </AvatarFallback>
             </Avatar>

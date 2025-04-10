@@ -41,7 +41,12 @@ const onExpand = () => {
     @collapse="onCollapse"
   >
     <div
-      :class="cn('flex h-[56px] items-center justify-center', isCollapsed ? 'h-[56px]' : 'px-2')"
+      :class="
+        cn(
+          'flex h-[var(--nav-height)] items-center justify-center',
+          isCollapsed ? 'h-[var(--nav-height)]' : 'px-2'
+        )
+      "
     >
       <div class="flex items-center text-sm">
         <Waypoints class="h-5 w-5" />
