@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Select from '@/components/Select.vue'
+import Combobox from '@/components/Combobox.vue'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -58,13 +58,14 @@ onBeforeUnmount(() => {
 
         <div class="grid grid-cols-3 items-center gap-4">
           <Label for="type">{{ t('type') }}: </Label>
-          <Select
+          <Combobox
             id="type"
             v-model="filters.type"
             class="col-span-2"
             size="sm"
             :placeholder="t('type')"
             :options="userStore.getUserTypeOptions"
+            :hasSearch="false"
           />
         </div>
       </div>

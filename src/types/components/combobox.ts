@@ -6,4 +6,6 @@ export type ComboboxProps = {
   disabled?: boolean
   size?: 'base' | 'sm'
   modelValue?: string | number
+  hasSearch?: boolean
+  multiple?: boolean
 }

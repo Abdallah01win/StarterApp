@@ -2,13 +2,13 @@
 import { Button } from '@/components/ui/button'
 import {
   Pagination,
+  PaginationContent,
   PaginationEllipsis,
   PaginationFirst,
+  PaginationItem,
   PaginationLast,
-  PaginationList,
-  PaginationListItem,
   PaginationNext,
-  PaginationPrev
+  PaginationPrevious
 } from '@/components/ui/pagination'
 import {
   Select,
@@ -22,6 +22,7 @@ import {
 import { pageSizeOptions } from '@/helpers'
 import { t } from '@/plugins'
 import { useParamStore } from '@/stores/paramStore'
+import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-vue-next'
 import { computed, ref, watch } from 'vue'
 
 const emit = defineEmits(['refresh'])
@@ -69,29 +70,34 @@ const changePage = (page: number) => {
         :itemsPerPage="parseInt(selectedPageSize)"
         show-edges
       >
-        <PaginationList v-slot="{ items }" class="flex items-center gap-1">
-          <PaginationFirst class="h-7 w-7" @click="changePage(1)" />
-          <PaginationPrev class="h-7 w-7" @click="changePage(page - 1)" />
+        <PaginationContent v-slot="{ items }" class="flex items-center gap-1">
+          <PaginationFirst class="size-7 cursor-pointer" @click="changePage(1)">
+            <ChevronsLeft />
+          </PaginationFirst>
+          <PaginationPrevious class="size-7 cursor-pointer" @click="changePage(page - 1)">
+            <ChevronLeft />
+          </PaginationPrevious>
+
           <template v-for="(item, index) in items">
-            <PaginationListItem
-              v-if="item.type === 'page'"
-              :key="index"
-              :value="item.value"
-              as-child
-            >
+            <PaginationItem v-if="item.type === 'page'" :key="index" :value="item.value" as-child>
               <Button
-                class="h-7 w-7 p-0"
+                class="size-7 cursor-pointer p-0"
                 :variant="item.value === page ? 'default' : 'outline'"
                 @click="item.value !== page && changePage(item.value)"
               >
                 {{ item.value }}
               </Button>
-            </PaginationListItem>
+            </PaginationItem>
             <PaginationEllipsis v-else :key="item.type" :index="index" />
           </template>
-          <PaginationNext class="h-7 w-7" @click="changePage(page + 1)" />
-          <PaginationLast class="h-7 w-7" @click="changePage(items.length - 1)" />
-        </PaginationList>
+
+          <PaginationNext class="size-7 cursor-pointer" @click="changePage(page + 1)">
+            <ChevronRight />
+          </PaginationNext>
+          <PaginationLast class="size-7 cursor-pointer" @click="changePage(items.length - 1)">
+            <ChevronsRight />
+          </PaginationLast>
+        </PaginationContent>
       </Pagination>
 
       <Select id="per-page" v-model="selectedPageSize" :default-value="selectedPageSize">

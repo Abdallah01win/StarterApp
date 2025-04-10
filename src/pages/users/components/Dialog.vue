@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import Combobox from '@/components/Combobox.vue'
 import DialogFooter from '@/components/DialogFooter.vue'
-import Select from '@/components/Select.vue'
 import {
   Dialog,
   DialogContent,
@@ -30,11 +30,11 @@ const authStore = useAuthStore()
 const { getUserRole } = authStore
 
 const initForm = {
-  name: '',
-  email: '',
-  password: '',
-  password_confirmation: '',
-  type: String(UserTypes.ACCOUNTANT)
+  name: null,
+  email: null,
+  password: null,
+  password_confirmation: null,
+  type: null
 }
 
 const loading = ref(false)
@@ -55,7 +55,7 @@ const emitSaveEvents = () => {
 const onSubmit = () => {
   loading.value = true
 
-  const data = { ...form.value, type: parseInt(form.value.type) }
+  const data = { ...form.value, type: Number(form.value.type) }
 
   if (isEdit.value) {
     userStore
@@ -112,7 +112,7 @@ onMounted(() => {
             <FormItem>
               <FormLabel for="type">{{ t('type') }}</FormLabel>
               <FormControl id="type">
-                <Select
+                <Combobox
                   v-bind="componentField"
                   :placeholder="t('select-a-type')"
                   :options="userStore.getUserTypeOptions"

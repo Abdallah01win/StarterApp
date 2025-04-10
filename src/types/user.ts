@@ -2,8 +2,7 @@ import type { Options } from './index'
 
 export enum UserTypes {
   SUPERADMIN,
-  ADMIN,
-  ACCOUNTANT
+  ADMIN
 }
 
 export type userTypeOptions = Options<UserTypes>

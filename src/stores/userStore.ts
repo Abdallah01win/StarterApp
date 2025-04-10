@@ -14,8 +14,7 @@ export const useUserStore = defineStore('users', () => {
 
   const userType: userTypeOptions = [
     { label: t('super-admin'), value: 0 },
-    { label: t('admin'), value: 1 },
-    { label: t('accountant'), value: 2 }
+    { label: t('admin'), value: 1 }
   ]
 
   const getUserTypeOptions = computed(() => {
