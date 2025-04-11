@@ -52,7 +52,7 @@ const changePage = (page: number) => {
 </script>
 
 <template>
-  <div class="flex w-full items-center justify-between">
+  <div class="flex w-full items-center justify-between py-3">
     <div class="text-muted-foreground text-xs">
       <span v-if="total">
         {{ t('showing') }} <strong>{{ paramStore.meta?.from }} - {{ paramStore.meta?.to }}</strong>

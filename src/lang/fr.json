@@ -8,7 +8,8 @@
     "max-number": "Doit être inférieur ou égal à {max}",
     "invalid-email": "Adresse email none-valide",
     "invalid-option": "Option sélectionnée none-valide",
-    "invalid-input": "Entrée none-valide"
+    "invalid-input": "Entrée none-valide",
+    "passwords-must-match": "Les mots de passe doivent correspondre"
   },
   "login": "Connexion",
   "email": "Email",
@@ -56,7 +57,6 @@
   "filter": "Filtrer",
   "reset": "Réinitialiser",
   "search": "Recherche...",
-  "passwords-must-match": "Les mots de passe doivent correspondre!",
   "address": "Adresse",
   "phone": "Téléphone",
   "balance": "Solde",

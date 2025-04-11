@@ -1,8 +1,15 @@
 <script setup lang="ts" generic="TData extends { id: number }, TValue, TChildData, TChildValue">
-import Card from '@/components/Card.vue'
 import Pagination from '@/components/table/Pagination.vue'
 import Table from '@/components/table/Table.vue'
 import { Button } from '@/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/card'
 import { t } from '@/plugins'
 import { routeInfo } from '@/router'
 import { useParamStore } from '@/stores/paramStore'
@@ -44,32 +51,39 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <Card
-    :title="routeInfo?.name"
-    :description="routeInfo?.description"
-    class="max-h-[var(--tab-height)]"
-  >
-    <template #headerAction>
-      <div v-can="routeInfo?.createPermission">
-        <Button
-          size="sm"
-          class="cursor-pointer gap-1.5"
-          :disabled="loading"
-          @click="emit('toggleDialog')"
-        >
-          <CirclePlus class="size-4" />
-          <span class="sr-only sm:not-sr-only sm:whitespace-nowrap"> {{ t('add') }} </span>
-        </Button>
+  <Card class="m-4 max-h-[var(--tab-height)] gap-y-0 py-0 shadow-none">
+    <CardHeader class="px-6 py-3 gap-0">
+      <div class="flex items-center justify-between">
+        <div v-if="routeInfo">
+          <CardTitle class="text-2xl">
+            {{ t(routeInfo.name) }}
+          </CardTitle>
+          <CardDescription v-if="routeInfo.description">
+            {{ t(routeInfo.description) }}
+          </CardDescription>
+        </div>
+
+        <div v-can="routeInfo?.createPermission">
+          <Button
+            size="sm"
+            class="cursor-pointer gap-1.5"
+            :disabled="loading"
+            @click="emit('toggleDialog')"
+          >
+            <CirclePlus class="size-4" />
+            <span class="sr-only sm:not-sr-only sm:whitespace-nowrap"> {{ t('add') }} </span>
+          </Button>
+        </div>
       </div>
-    </template>
+    </CardHeader>
 
-    <template #main>
+    <CardContent>
       <Table v-bind="forwarded" @delete="handleDeletion" />
-    </template>
+    </CardContent>
 
-    <template #cardFooter>
+    <CardFooter>
       <Pagination @refresh="emit('refresh')" />
-    </template>
+    </CardFooter>
   </Card>
 
   <DeleteDialog

@@ -11,5 +11,17 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src')
     }
+  },
+  optimizeDeps: {
+    include: [
+      '@vee-validate/zod',
+      '@internationalized/date',
+      '@tanstack/vue-table',
+      'unplugin-vue-router/runtime',
+      'unplugin-vue-router/data-loaders',
+      'unplugin-vue-router/data-loaders/basic',
+      'vee-validate',
+      'reka-ui'
+    ]
   }
 })

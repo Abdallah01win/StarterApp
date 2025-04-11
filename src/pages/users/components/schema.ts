@@ -23,7 +23,7 @@ const getValidationSchema = (isEdit: boolean) => {
 
   return toTypedSchema(
     schema.refine(({ password, password_confirmation }) => password === password_confirmation, {
-      message: t('passwords-must-match'),
+      message: t('validation.passwords-must-match'),
       path: ['password_confirmation']
     })
   )

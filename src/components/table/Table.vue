@@ -20,8 +20,8 @@ import { ChevronRight, Loader2 } from 'lucide-vue-next'
 import { computed, h, ref } from 'vue'
 
 import ChildTable from './ChildTable.vue'
-import DropdownAction from './DataTableDropDown.vue'
 import SortableHeader from './SortableHeader.vue'
+import TableActions from './TableActions.vue'
 
 const props = defineProps<TableCompProps<TData, TValue, TChildData, TChildValue>>()
 
@@ -89,12 +89,10 @@ const table = useVueTable({
         const data = row.original
         return h(
           'div',
-          { class: 'grid place-content-center' },
-          h(DropdownAction, {
+          { class: 'grid place-content-center relative' },
+          h(TableActions, {
             row: data,
-            isPrintable: props.isPrintable,
             onEdit: (e) => emit('edit', e),
-            onPrint: (e) => emit('print', e),
             onDelete: (e) => emit('delete', e)
           })
         )

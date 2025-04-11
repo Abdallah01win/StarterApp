@@ -9,13 +9,8 @@ export default toTypedSchema(
       password: z.string().min(8).optional(),
       password_confirmation: z.string().min(8).optional()
     })
-    .refine(
-      (values) => {
-        return values.password === values.password_confirmation
-      },
-      {
-        message: t('passwords-must-match'),
-        path: ['password_confirmation']
-      }
-    )
+    .refine((values) => values.password === values.password_confirmation, {
+      message: t('validation.passwords-must-match'),
+      path: ['password_confirmation']
+    })
 )
