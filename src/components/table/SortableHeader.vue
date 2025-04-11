@@ -27,7 +27,7 @@ const isSorted = computed(
   <div class="flex items-center justify-between">
     <div>{{ t(header || colName) }}</div>
 
-    <Button class="ml-2" variant="ghost" size="xs" @click="sort">
+    <Button class="ml-2 cursor-pointer" variant="ghost" size="icon" @click="sort">
       <ArrowUpDown v-if="!isSorted" class="h-4 w-4" />
       <ArrowDownWideNarrow
         v-else-if="sorts.includes(`-${props.colName}`)"

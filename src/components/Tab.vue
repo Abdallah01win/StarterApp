@@ -50,9 +50,14 @@ onBeforeUnmount(() => {
     class="max-h-[var(--tab-height)]"
   >
     <template #headerAction>
-      <div v-can="routeInfo?.createPermission" class="flex items-center justify-end space-x-2">
-        <Button size="sm" class="gap-1.5" :disabled="loading" @click="emit('toggleDialog')">
-          <CirclePlus class="h-4 w-4" />
+      <div v-can="routeInfo?.createPermission">
+        <Button
+          size="sm"
+          class="cursor-pointer gap-1.5"
+          :disabled="loading"
+          @click="emit('toggleDialog')"
+        >
+          <CirclePlus class="size-4" />
           <span class="sr-only sm:not-sr-only sm:whitespace-nowrap"> {{ t('add') }} </span>
         </Button>
       </div>

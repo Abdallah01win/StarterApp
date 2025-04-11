@@ -14,7 +14,7 @@ const { loading, isEdit, isValid } = defineProps<{
 <template>
   <DialogFooter class="mt-6">
     <Button type="submit" :disabled="loading || !isValid">
-      <Loader2 v-if="loading" class="mr-2 h-4 w-4 animate-spin" />
+      <Loader2 v-if="loading" class="mr-1 h-4 w-4 animate-spin" />
       {{ isEdit ? t('save') : t('create') }}
     </Button>
 

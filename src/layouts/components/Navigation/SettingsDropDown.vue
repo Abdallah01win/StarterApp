@@ -33,7 +33,7 @@ const setNewLocale = () => {
     <DropdownMenu>
       <TooltipTrigger as-child>
         <DropdownMenuTrigger>
-          <Button variant="ghost" size="icon">
+          <Button variant="ghost" size="icon" class="cursor-pointer">
             <Settings class="size-4" />
             <span class="sr-only">{{ t('settings') }}</span>
           </Button>

@@ -45,7 +45,7 @@ const reset = () => {
 
     <Popover :open @update:open="toggleFilter">
       <PopoverTrigger>
-        <Button variant="ghost" size="icon" class="ml-2">
+        <Button variant="ghost" size="icon" class="ml-2 cursor-pointer">
           <FilterIcon class="h-4 w-4" />
         </Button>
       </PopoverTrigger>

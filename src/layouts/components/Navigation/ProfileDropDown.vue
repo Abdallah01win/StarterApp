@@ -84,7 +84,7 @@ const logoutUser = () => {
 
       <DialogFooter>
         <Button @click="logoutUser">
-          <Loader2 v-if="loading" class="mr-2 h-4 w-4 animate-spin" />
+          <Loader2 v-if="loading" class="mr-1 h-4 w-4 animate-spin" />
           {{ t('logout') }}
         </Button>
         <DialogClose as-child>

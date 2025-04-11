@@ -36,7 +36,7 @@ const markAsRead = (id: string) => {
     <DropdownMenu>
       <TooltipTrigger as-child>
         <DropdownMenuTrigger>
-          <Button variant="ghost" size="icon">
+          <Button variant="ghost" size="icon" class="cursor-pointer">
             <div class="relative">
               <Bell class="size-4" />
 
