@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<ComboboxProps & { class?: HTMLAttributes[
   class: ''
 })
 
-const emit = defineEmits<ComboboxRootEmits<string | number>>()
+const emit = defineEmits<ComboboxRootEmits<ComboboxProps['modelValue']>>()
 </script>
 
 <template>
@@ -55,8 +55,8 @@ const emit = defineEmits<ComboboxRootEmits<string | number>>()
         <CommandList>
           <CommandGroup>
             <CommandItem
-              v-for="option in options"
-              :key="option.value"
+              v-for="(option, index) in options"
+              :key="index"
               :value="option.label"
               :disabled="option.disabled"
               class="py-1.5"

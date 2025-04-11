@@ -13,13 +13,13 @@ const { loading, isEdit, isValid } = defineProps<{
 
 <template>
   <DialogFooter class="mt-6">
-    <Button type="submit" :disabled="loading || !isValid">
+    <Button type="submit" :disabled="loading || !isValid" class="cursor-pointer">
       <Loader2 v-if="loading" class="mr-1 h-4 w-4 animate-spin" />
       {{ isEdit ? t('save') : t('create') }}
     </Button>
 
     <DialogClose as-child>
-      <Button type="button" :disabled="loading" variant="secondary">
+      <Button type="button" :disabled="loading" variant="secondary" class="cursor-pointer">
         {{ t('cancel') }}
       </Button>
     </DialogClose>

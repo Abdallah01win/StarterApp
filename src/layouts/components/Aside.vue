@@ -51,8 +51,8 @@ const onExpand = () => {
       <div class="flex items-center text-sm">
         <Waypoints class="h-5 w-5" />
         <span v-if="!isCollapsed" class="ml-1">
-          <span class="text-muted-foreground font-medium">Logist</span>
-          <span class="font-semibold">Xpert</span>
+          <span class="text-muted-foreground font-medium">Starter</span>
+          <span class="font-semibold">App</span>
         </span>
       </div>
     </div>

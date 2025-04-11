@@ -1,4 +1,15 @@
 {
+  "validation": {
+    "required": "Ce champ est obligatoire",
+    "must-be-number": "Ce champ doit être un nombre",
+    "min-length": "Doit contenir au moins {min} caractères",
+    "max-length": "Doit contenir au maximum {max} caractères",
+    "min-number": "Doit être supérieur ou égal à {min}",
+    "max-number": "Doit être inférieur ou égal à {max}",
+    "invalid-email": "Adresse email none-valide",
+    "invalid-option": "Option sélectionnée none-valide",
+    "invalid-input": "Entrée none-valide"
+  },
   "login": "Connexion",
   "email": "Email",
   "loginDescription": "Saisissez votre email pour vous connecter",

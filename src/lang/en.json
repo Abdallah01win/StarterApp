@@ -1,4 +1,15 @@
 {
+  "validation": {
+    "required": "This field must be filled out",
+    "must-be-number": "This field must be a number",
+    "min-length": "Must be at least {min} characters",
+    "max-length": "Must be at most {max} characters",
+    "min-number": "Must be at least {min}",
+    "max-number": "Must be at most {max}",
+    "invalid-email": "Invalid email address",
+    "invalid-option": "Invalid option selected",
+    "invalid-input": "Invalid input"
+  },
   "login": "Login",
   "loginDescription": "Enter your email below to login to your account",
   "email": "Email",

@@ -26,9 +26,8 @@ export const useParamStore = defineStore('params', () => {
     return params
   }
 
-  const setFilter = (alias: string, value?: string | number | null) => {
+  const setFilter = (alias: string, value: string | number | null) => {
     const filterName = getFilterName(alias)
-    console.log('filterName', filterName, value)
 
     if (!filterName) return
     if (filterName && (value || value === 0)) filters.set(filterName, value)

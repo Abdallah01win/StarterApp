@@ -116,6 +116,7 @@ onMounted(() => {
                   v-bind="componentField"
                   :placeholder="t('select-a-type')"
                   :options="userStore.getUserTypeOptions"
+                  :hasSearch="false"
                 />
               </FormControl>
               <FormMessage />
