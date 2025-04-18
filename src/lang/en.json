@@ -224,5 +224,6 @@
   "unauthorized-request": "This request is unauthorized.",
   "created-successfully": "Element created successfuly.",
   "updated-successfully": "Element updated successfully.",
-  "deleted-successfully": "Element deleted successfully."
+  "deleted-successfully": "Element deleted successfully.",
+  "user": "User"
 }
