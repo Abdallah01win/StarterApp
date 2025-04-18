@@ -28,8 +28,8 @@ const form = useForm({
 
 const loading = ref(false)
 
-const getCurrentUserType = computed(
-  () => authStore.user && userStore.getUserType(authStore.user.type)
+const getCurrentUserRole = computed(
+  () => authStore.user && userStore.getUserRole(authStore.user.role)
 )
 
 const isSaveDisabled = computed(
@@ -65,7 +65,7 @@ const onSubmit = form.handleSubmit(async (values) => {
               <p class="text-sm leading-none font-medium">
                 {{ authStore.user?.name }}
               </p>
-              <Badge variant="secondary">{{ getCurrentUserType }}</Badge>
+              <Badge variant="secondary">{{ getCurrentUserRole }}</Badge>
             </div>
 
             <p class="text-muted-foreground text-sm">

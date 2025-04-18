@@ -224,5 +224,6 @@
   "unauthorized-request": "Cette demande n'est pas autorisée.",
   "created-successfully": "Élément créé avec succès.",
   "updated-successfully": "Élément modifié avec succès.",
-  "deleted-successfully": "Élément supprimé avec succès."
+  "deleted-successfully": "Élément supprimé avec succès.",
+  "user": "Utilisateur"
 }

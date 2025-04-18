@@ -1,11 +1,11 @@
 import { t, z } from '@/plugins'
-import { UserTypes } from '@/types'
+import { UserRoles } from '@/types'
 import { toTypedSchema } from '@vee-validate/zod'
 
 const baseSchema = z.object({
   name: z.string().min(4),
   email: z.string().email(),
-  type: z.preprocess((val) => Number(val), z.nativeEnum(UserTypes)).or(z.undefined())
+  type: z.preprocess((val) => Number(val), z.nativeEnum(UserRoles)).or(z.undefined())
 })
 
 const createSchema = z.object({

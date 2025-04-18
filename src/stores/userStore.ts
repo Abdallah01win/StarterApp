@@ -1,5 +1,5 @@
 import { axios, t } from '@/plugins'
-import { type User, UserTypes, type userTypeOptions } from '@/types'
+import { type User, UserRoles, type userRoleOptions } from '@/types'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 
@@ -12,13 +12,14 @@ export const useUserStore = defineStore('users', () => {
 
   const users = ref<User[]>([])
 
-  const userType: userTypeOptions = [
+  const userRole: userRoleOptions = [
     { label: t('super-admin'), value: 0 },
-    { label: t('admin'), value: 1 }
+    { label: t('admin'), value: 1 },
+    { label: t('user'), value: 2 }
   ]
 
-  const getUserTypeOptions = computed(() => {
-    return userType.filter(({ value }) => value > (authStore.user?.type || UserTypes.SUPERADMIN))
+  const getUserRoleOptions = computed(() => {
+    return userRole.filter(({ value }) => value > (authStore.user?.role || UserRoles.SUPERADMIN))
   })
 
   const fetch = () => {
@@ -69,16 +70,16 @@ export const useUserStore = defineStore('users', () => {
     })
   }
 
-  const getUserType = (type: UserTypes) => userType.find(({ value }) => value === type)?.label
+  const getUserRole = (type: UserRoles) => userRole.find(({ value }) => value === type)?.label
 
   return {
     users,
-    userType,
-    getUserTypeOptions,
+    userRole,
+    getUserRoleOptions,
     fetch,
     create,
     update,
     destroy,
-    getUserType
+    getUserRole
   }
 })

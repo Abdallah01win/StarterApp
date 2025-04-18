@@ -14,7 +14,7 @@ import { resetForm } from '@/helpers'
 import { t } from '@/plugins'
 import { useAuthStore } from '@/stores/authStore'
 import { useUserStore } from '@/stores/userStore'
-import { UserTypes } from '@/types'
+import { UserRoles } from '@/types'
 import { Form } from 'vee-validate'
 import { computed, onMounted, ref, watch } from 'vue'
 
@@ -104,7 +104,7 @@ onMounted(() => {
           </FormField>
 
           <FormField
-            v-if="!isEdit && getUserRole() === UserTypes.SUPERADMIN"
+            v-if="!isEdit && getUserRole() === UserRoles.SUPERADMIN"
             v-slot="{ componentField }"
             v-model="form.type"
             name="type"
@@ -115,7 +115,7 @@ onMounted(() => {
                 <Combobox
                   v-bind="componentField"
                   :placeholder="t('select-a-type')"
-                  :options="userStore.getUserTypeOptions"
+                  :options="userStore.getUserRoleOptions"
                   :hasSearch="false"
                 />
               </FormControl>

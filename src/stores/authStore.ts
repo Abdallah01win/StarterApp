@@ -35,7 +35,7 @@ export const useAuthStore = defineStore('auth', () => {
         if (router.currentRoute.value.name !== '/') loading.value = true
 
         axios
-          .get<InitUser>('initUser')
+          .get<InitUser>('init_user')
           .then(({ data }) => {
             user.value = data
             notificationsStore.setNotifications(data?.notifications)
@@ -67,7 +67,7 @@ export const useAuthStore = defineStore('auth', () => {
     })
   }
 
-  const getUserRole = () => user.value?.type
+  const getUserRole = () => user.value?.role
 
   const resetLoading = () => (loading.value = false)
 

@@ -11,7 +11,21 @@ import { ResponseCodes } from './constants'
 export * from './constants'
 
 export const formatDate = (date: unknown, format: DateFormats = DateFormats.API) => {
-  return dayjs(String(date)).format(format)
+  return format === DateFormats.API
+    ? dayjs(String(date)).utc().format(format)
+    : dayjs.utc(String(date)).tz(getUserTimezone()).format(format)
+}
+
+export const getUserTimezone = () => {
+  const tz = localStorage.getItem('tz')
+
+  if (tz) return tz
+  else {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone
+    localStorage.setItem('tz', tz)
+
+    return tz
+  }
 }
 
 export const formatNumber = (number: number, decimal: number = 2) => {

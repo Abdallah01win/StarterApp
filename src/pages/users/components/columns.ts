@@ -19,10 +19,10 @@ const columns: ColumnDef<User>[] = [
   },
   {
     accessorKey: 'type',
-    header: () => h(FilterableHeader, { colName: 'type', options: userStore.userType }),
+    header: () => h(FilterableHeader, { colName: 'type', options: userStore.userRole }),
     cell: ({ row }) => {
       const type = Number(row.getValue('type'))
-      const val = () => userStore.getUserType(type)
+      const val = () => userStore.getUserRole(type)
 
       return h(Badge, { variant: 'outline' }, val)
     }

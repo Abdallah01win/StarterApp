@@ -1,17 +1,18 @@
 import type { Options } from './index'
 
-export enum UserTypes {
+export enum UserRoles {
   SUPERADMIN,
-  ADMIN
+  ADMIN,
+  USER
 }
 
-export type userTypeOptions = Options<UserTypes>
+export type userRoleOptions = Options<UserRoles>
 
 export interface User {
   readonly id: number
   name: string
   email: string
-  type: UserTypes
+  role: UserRoles
   created_at: string
 }
 
