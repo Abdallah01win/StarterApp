@@ -29,7 +29,7 @@ const form = useForm({
 const loading = ref(false)
 
 const getCurrentUserType = computed(
-  () => authStore.user && userStore.getUserType(authStore.user.type)
+  () => authStore.user && userStore.getUserType(authStore.user.role)
 )
 
 const isSaveDisabled = computed(

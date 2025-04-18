@@ -11,7 +11,7 @@ export interface User {
   readonly id: number
   name: string
   email: string
-  type: UserTypes
+  role: UserTypes
   created_at: string
 }
 

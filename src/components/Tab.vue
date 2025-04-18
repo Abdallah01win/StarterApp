@@ -52,7 +52,7 @@ onBeforeUnmount(() => {
 
 <template>
   <Card class="m-4 max-h-[var(--tab-height)] gap-y-0 py-0 shadow-none">
-    <CardHeader class="px-6 py-3 gap-0">
+    <CardHeader class="gap-0 px-6 py-3">
       <div class="flex items-center justify-between">
         <div v-if="routeInfo">
           <CardTitle class="text-2xl">
