@@ -49,12 +49,12 @@ const destroy = () => {
       </DialogHeader>
 
       <DialogFooter>
-        <Button type="button" class="cursor-pointer" :disabled="loading" @click.prevent="destroy">
+        <Button class="cursor-pointer" :disabled="loading" @click.prevent="destroy">
           <Loader2 v-if="loading" class="mr-1 h-4 w-4 animate-spin" />
           {{ t('delete') }}
         </Button>
         <DialogClose as-child>
-          <Button type="button" class="cursor-pointer" variant="secondary">
+          <Button class="cursor-pointer" variant="secondary">
             {{ t('cancel') }}
           </Button>
         </DialogClose>
