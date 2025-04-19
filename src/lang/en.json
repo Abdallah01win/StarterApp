@@ -96,5 +96,7 @@
   "enter-new-password": "Enter new password",
   "confirm-new-password": "Confirm new password",
   "unauthorized-request": "This request is unauthorized.",
-  "expand-row": "Expand row"
+  "expand-row": "Expand row",
+  "role": "Role",
+  "select-a-role": "Select a role"
 }
