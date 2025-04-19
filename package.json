@@ -23,7 +23,7 @@
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
     "js-cookie": "^3.0.5",
-    "lucide-vue-next": "^0.487.0",
+    "lucide-vue-next": "^0.501.0",
     "pinia": "^3.0.2",
     "reka-ui": "^2.2.0",
     "tailwind-merge": "^3.2.0",
