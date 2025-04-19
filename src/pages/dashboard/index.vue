@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { t } from '@/plugins'
 import { getLocalTimeZone, today } from '@internationalized/date'
-import { Loader2} from 'lucide-vue-next'
+import { Loader2 } from 'lucide-vue-next'
 import { type DateRange as DateRangeType } from 'reka-ui'
 import { type Ref, ref } from 'vue'
 
@@ -31,10 +31,7 @@ const dateRange = ref(dateRangeInit) as Ref<DateRangeType>
             :disabled="loading"
           />
 
-          <Button
-            class="max-sm:w-full"
-            :disabled="loading || !dateRange.end"
-          >
+          <Button class="max-sm:w-full" :disabled="loading || !dateRange.end">
             <Loader2 v-if="loading" class="mr-1 h-4 w-4 animate-spin" />
             {{ t('generate') }}
           </Button>
