@@ -54,7 +54,9 @@ const destroy = () => {
           {{ t('delete') }}
         </Button>
         <DialogClose as-child>
-          <Button type="button" class="cursor-pointer" variant="secondary"> {{ t('cancel') }} </Button>
+          <Button type="button" class="cursor-pointer" variant="secondary">
+            {{ t('cancel') }}
+          </Button>
         </DialogClose>
       </DialogFooter>
     </DialogContent>

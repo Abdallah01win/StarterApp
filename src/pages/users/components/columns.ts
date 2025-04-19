@@ -19,7 +19,11 @@ const columns: ColumnDef<User>[] = [
   },
   {
     accessorKey: 'type',
-    header: () => h(FilterableHeader, { colName: 'type', options: userStore.userRole }),
+    header: () =>
+      h(FilterableHeader, {
+        colName: 'type',
+        options: userStore.getUserRoleOptions
+      }),
     cell: ({ row }) => {
       const type = Number(row.getValue('type'))
       const val = () => userStore.getUserRole(type)
