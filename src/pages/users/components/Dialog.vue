@@ -34,7 +34,7 @@ const initForm = {
   email: null,
   password: null,
   password_confirmation: null,
-  type: null
+  role: null
 }
 
 const loading = ref(false)
@@ -55,7 +55,7 @@ const emitSaveEvents = () => {
 const onSubmit = () => {
   loading.value = true
 
-  const data = { ...form.value, type: Number(form.value.type) }
+  const data = { ...form.value, role: Number(form.value.role) }
 
   if (isEdit.value) {
     userStore
@@ -106,15 +106,15 @@ onMounted(() => {
           <FormField
             v-if="!isEdit && getUserRole() === UserRoles.SUPERADMIN"
             v-slot="{ componentField }"
-            v-model="form.type"
-            name="type"
+            v-model="form.role"
+            name="role"
           >
             <FormItem>
-              <FormLabel for="type">{{ t('type') }}</FormLabel>
-              <FormControl id="type">
+              <FormLabel for="role">{{ t('role') }}</FormLabel>
+              <FormControl id="role">
                 <Combobox
                   v-bind="componentField"
-                  :placeholder="t('select-a-type')"
+                  :placeholder="t('select-a-role')"
                   :options="userStore.getUserRoleOptions"
                   :hasSearch="false"
                 />

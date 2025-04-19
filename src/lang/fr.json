@@ -96,5 +96,7 @@
   "select-a-status": "Sélectionnez un statut",
   "select-a-type": "Sélectionnez un type",
   "suggestions": "Suggestions",
-  "expand-row": "Développer la ligne"
+  "expand-row": "Développer la ligne",
+  "select-a-role": "Sélectionnez un rôle",
+  "role": "Rôle"
 }

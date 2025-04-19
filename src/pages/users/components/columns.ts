@@ -18,15 +18,15 @@ const columns: ColumnDef<User>[] = [
     header: () => h('div', t('email'))
   },
   {
-    accessorKey: 'type',
+    accessorKey: 'role',
     header: () =>
       h(FilterableHeader, {
-        colName: 'type',
+        colName: 'role',
         options: userStore.getUserRoleOptions
       }),
     cell: ({ row }) => {
-      const type = Number(row.getValue('type'))
-      const val = () => userStore.getUserRole(type)
+      const role = Number(row.getValue('role'))
+      const val = () => userStore.getUserRole(role)
 
       return h(Badge, { variant: 'outline' }, val)
     }
