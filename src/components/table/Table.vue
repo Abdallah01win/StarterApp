@@ -64,7 +64,7 @@ const table = useVueTable({
             'h-5 w-5 cursor-pointer transition-transform',
             row.getIsExpanded() && 'rotate-90'
           ),
-          ariaLabel: 'Expand row'
+          ariaLabel: t('expand-row')
         })
     }
 
