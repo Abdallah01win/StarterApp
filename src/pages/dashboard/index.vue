@@ -3,18 +3,10 @@ import DateRange from '@/components/DateRange.vue'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { t } from '@/plugins'
-import { useStatsStore } from '@/stores/statsStore'
 import { getLocalTimeZone, today } from '@internationalized/date'
-import { FileBox, Loader2, PackageCheck, ReceiptText, Wallet } from 'lucide-vue-next'
-import { storeToRefs } from 'pinia'
+import { Loader2} from 'lucide-vue-next'
 import { type DateRange as DateRangeType } from 'reka-ui'
-import { type Ref, onBeforeMount, ref } from 'vue'
-
-import StatsCard from './components/StatsCard.vue'
-
-const statsStore = useStatsStore()
-
-const { stats } = storeToRefs(statsStore)
+import { type Ref, ref } from 'vue'
 
 const dateRangeInit = {
   start: today(getLocalTimeZone()).subtract({ days: 30 }),
@@ -22,16 +14,7 @@ const dateRangeInit = {
 }
 
 const loading = ref(false)
-
 const dateRange = ref(dateRangeInit) as Ref<DateRangeType>
-
-const fetchStats = () => {
-  loading.value = true
-
-  statsStore.fetch(dateRange.value).finally(() => (loading.value = false))
-}
-
-onBeforeMount(() => fetchStats())
 </script>
 
 <template>
@@ -51,7 +34,6 @@ onBeforeMount(() => fetchStats())
           <Button
             class="max-sm:w-full"
             :disabled="loading || !dateRange.end"
-            @click.prevent="fetchStats"
           >
             <Loader2 v-if="loading" class="mr-1 h-4 w-4 animate-spin" />
             {{ t('generate') }}
@@ -60,27 +42,7 @@ onBeforeMount(() => fetchStats())
       </div>
 
       <div class="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-4 lg:grid-cols-4">
-        <StatsCard
-          :loading
-          :data="stats?.revenue"
-          :title="t('total-revenue')"
-          :format-value="true"
-          suffix="DH"
-        >
-          <Wallet class="text-muted-foreground h-4 w-4" />
-        </StatsCard>
-
-        <StatsCard :loading :data="stats?.ordered_quantity" :title="t('ordered-quantity')">
-          <FileBox class="text-muted-foreground h-4 w-4" />
-        </StatsCard>
-
-        <StatsCard :loading :data="stats?.delivered_quantity" :title="t('delivered-quantity')">
-          <PackageCheck class="text-muted-foreground h-4 w-4" />
-        </StatsCard>
-
-        <StatsCard :loading :data="stats?.invoiced_quantity" :title="t('invoiced-quantity')">
-          <ReceiptText class="text-muted-foreground h-4 w-4" />
-        </StatsCard>
+        <!-- Stats Components -->
       </div>
     </div>
   </ScrollArea>
