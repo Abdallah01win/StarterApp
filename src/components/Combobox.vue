@@ -42,7 +42,7 @@ const emit = defineEmits<ComboboxRootEmits<ComboboxProps['modelValue']>>()
       >
         {{
           modelValue || modelValue === 0
-            ? options.find((option) => option.value === modelValue)?.label
+            ? props.options.find((option) => option.value === modelValue)?.label
             : placeholder
         }}
         <ChevronsUpDown class="ml-2 size-4 shrink-0 opacity-50" />
@@ -50,12 +50,12 @@ const emit = defineEmits<ComboboxRootEmits<ComboboxProps['modelValue']>>()
     </PopoverTrigger>
     <PopoverContent :class="cn('p-0', size === 'sm' && 'w-56')">
       <Command>
-        <CommandInput v-if="props.hasSearch" :placeholder="t('search')" />
+        <CommandInput v-show="props.hasSearch" :placeholder="t('search')" />
         <CommandEmpty class="py-3">{{ t('no-data') }}</CommandEmpty>
         <CommandList>
           <CommandGroup>
             <CommandItem
-              v-for="(option, index) in options"
+              v-for="(option, index) in props.options"
               :key="index"
               :value="option.label"
               :disabled="option.disabled"
