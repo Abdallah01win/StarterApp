@@ -52,6 +52,6 @@
     "typescript-eslint": "^8.30.1",
     "unplugin-vue-router": "^0.12.0",
     "vite": "^6.3.2",
-    "vue-tsc": "^2.2.4"
+    "vue-tsc": "^2.2.10"
   }
 }
