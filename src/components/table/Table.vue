@@ -75,7 +75,7 @@ const table = useVueTable({
     }
 
     const createdAtCol: ColumnDef<TData, TValue> = {
-      accessorKey: 'created_at',
+      accessorKey: 'createdAt',
       header: () => h(SortableHeader, { colName: 'created_at', header: 'created-at' }),
       cell: ({ cell }) => h('div', formatDate(cell.renderValue(), DateFormats.DISPLAY)),
       enableSorting: true

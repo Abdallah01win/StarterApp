@@ -92,7 +92,7 @@ onMounted(() => {
       </DialogHeader>
 
       <Form v-slot="{ meta }" :validationSchema @submit="onSubmit()">
-        <div class="grid grid-cols-3 gap-4">
+        <div class="grid grid-cols-3 items-baseline gap-4">
           <FormField v-slot="{ componentField }" v-model="form.name" name="name">
             <FormItem>
               <FormLabel>{{ t('name') }}</FormLabel>

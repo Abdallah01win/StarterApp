@@ -33,7 +33,7 @@ const { setPage, setPerPage } = paramStore
 
 const selectedPageSize = ref<string>(pageSizeOptions[0])
 
-const page = computed(() => paramStore.meta?.current_page || 1)
+const page = computed(() => paramStore.meta?.currentPage || 1)
 
 const total = computed(() => paramStore.meta?.total || 0)
 
