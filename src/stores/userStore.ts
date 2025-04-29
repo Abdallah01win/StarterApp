@@ -4,6 +4,7 @@ import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 
 import { useAuthStore } from './authStore'
+import { baseCreate, baseDestroy, baseUpdate } from './baseStore'
 import { useParamStore } from './paramStore'
 
 export const useUserStore = defineStore('users', () => {
@@ -38,37 +39,9 @@ export const useUserStore = defineStore('users', () => {
     })
   }
 
-  const create = (form: any) => {
-    return new Promise((resolve, reject) => {
-      axios.post(`users`, form).then(
-        () => resolve(true),
-        () => reject()
-      )
-    })
-  }
-
-  const update = (form: any) => {
-    return new Promise((resolve, reject) => {
-      axios.put(`users/${form.id}`, form).then(
-        () => {
-          if (form.id === authStore.user?.id) {
-            authStore.logout().then(() => resolve(true))
-          }
-          resolve(true)
-        },
-        () => reject()
-      )
-    })
-  }
-
-  const destroy = (id: number) => {
-    return new Promise((resolve, reject) => {
-      axios.delete(`users/${id}`).then(
-        () => resolve(true),
-        () => reject()
-      )
-    })
-  }
+  const create = baseCreate('users')
+  const update = baseUpdate('users')
+  const destroy = baseDestroy('users')
 
   const getUserRole = (type: UserRoles) => userRole.find(({ value }) => value === type)?.label
 
