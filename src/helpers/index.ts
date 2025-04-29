@@ -41,7 +41,7 @@ export const showToaster = (status: ResponseCodes, msg?: string) => {
   const toastOpt =
     toasterOptions.find((opt) => opt.code === status) ||
     toasterOptions.find((opt) => opt.code === ResponseCodes.BAD_REQUEST)!
-  
+
   toast[toastOpt.type](toastOpt.title, {
     description: msg || toastOpt.description
   })
