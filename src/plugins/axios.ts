@@ -31,18 +31,18 @@ Axios.interceptors.response.use(
 
     return response
   },
-  (error) => {
+  ({ response }) => {
     const authStore = useAuthStore()
 
-    if (error.response.status === ResponseCodes.UNAUTHORIZED) {
+    if (response.status === ResponseCodes.UNAUTHORIZED) {
       authStore.user = null
       Cookies.remove('token')
       router.push('/')
     }
 
-    showToaster(ResponseCodes.BAD_REQUEST)
+    showToaster(response.status, response.data.message)
 
-    return Promise.reject(error)
+    return Promise.reject(response)
   }
 )
 

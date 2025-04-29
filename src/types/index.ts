@@ -25,13 +25,10 @@ export interface LoginResponse {
 }
 
 export interface MetaData {
-  current_page: number
+  currentPage: number
   from: number
   to: number
   total: number
-  links: []
-  path: string
-  per_page: number
 }
 
 export type Options<T> = { label: string; value: T; disabled?: boolean }[]
