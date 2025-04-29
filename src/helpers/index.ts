@@ -37,10 +37,13 @@ export const formatNumber = (number: number, decimal: number = 2) => {
     .normalize('NFKC')
 }
 
-export const showToaster = (status: ResponseCodes) => {
-  const toastOpt = toasterOptions.find((opt) => opt.code === status)!
+export const showToaster = (status: ResponseCodes, msg?: string) => {
+  const toastOpt =
+    toasterOptions.find((opt) => opt.code === status) ||
+    toasterOptions.find((opt) => opt.code === ResponseCodes.BAD_REQUEST)!
+  
   toast[toastOpt.type](toastOpt.title, {
-    description: toastOpt.description
+    description: msg || toastOpt.description
   })
 }
 
