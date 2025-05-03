@@ -15,6 +15,12 @@ export interface Route {
   printPermission?: string
 }
 
+export type Notification = {
+  readonly id: number
+  data: Record<string, string | number>
+  createdAt: Date
+}
+
 export interface LoginForm {
   email: string
   password: string

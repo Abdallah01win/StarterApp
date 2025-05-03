@@ -7,7 +7,9 @@ import { useAuthStore } from './authStore'
 import { baseCreate, baseDestroy, baseUpdate } from './baseStore'
 import { useParamStore } from './paramStore'
 
-export const useUserStore = defineStore('users', () => {
+const endpoint = 'users'
+
+export const useUserStore = defineStore(endpoint, () => {
   const authStore = useAuthStore()
   const paramStore = useParamStore()
 
@@ -27,7 +29,7 @@ export const useUserStore = defineStore('users', () => {
     const params = paramStore.getParams()
 
     return new Promise((resolve, reject) => {
-      axios.get('users', { params }).then(
+      axios.get(endpoint, { params }).then(
         ({ data }) => {
           users.value = data.data
           paramStore.meta = data.meta
@@ -39,9 +41,9 @@ export const useUserStore = defineStore('users', () => {
     })
   }
 
-  const create = baseCreate('users')
-  const update = baseUpdate('users')
-  const destroy = baseDestroy('users')
+  const create = baseCreate(endpoint)
+  const update = baseUpdate(endpoint)
+  const destroy = baseDestroy(endpoint)
 
   const getUserRole = (type: UserRoles) => userRole.find(({ value }) => value === type)?.label
 

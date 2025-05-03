@@ -8,7 +8,7 @@ import { ref } from 'vue'
 import { useNotificationStore } from './notificationStore'
 
 export const useAuthStore = defineStore('auth', () => {
-  const notificationsStore = useNotificationStore()
+  const notificationStore = useNotificationStore()
 
   const user = ref<InitUser | null>(null)
   const loading = ref(false)
@@ -38,7 +38,7 @@ export const useAuthStore = defineStore('auth', () => {
           .get<InitUser>('init_user')
           .then(({ data }) => {
             user.value = data
-            notificationsStore.setNotifications(data?.notifications)
+            notificationStore.setNotifications(data?.notifications)
 
             resolve(data)
           })

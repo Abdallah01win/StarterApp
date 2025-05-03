@@ -18,11 +18,11 @@ import { ref } from 'vue'
 
 const notificationStore = useNotificationStore()
 
-const loadingNotifications = ref<string[]>([])
+const loadingNotifications = ref<number[]>([])
 
-const isLoading = (id: string) => loadingNotifications.value.includes(id)
+const isLoading = (id: number) => loadingNotifications.value.includes(id)
 
-const markAsRead = (id: string) => {
+const markAsRead = (id: number) => {
   loadingNotifications.value.push(id)
 
   notificationStore.markAsRead(id).finally(() => {
@@ -75,9 +75,9 @@ const markAsRead = (id: string) => {
                 </Button>
 
                 <div class="flex flex-col">
-                  <div class="mb-0.5">{{ notificationStore.formatNotification(not.data) }}</div>
+                  <div class="mb-0.5">{{ not.data }}</div>
                   <div class="text-muted-foreground text-xs">
-                    {{ formatDate(not.created_at, DateFormats.LONG) }}
+                    {{ formatDate(not.createdAt, DateFormats.LONG) }}
                   </div>
                 </div>
               </div>

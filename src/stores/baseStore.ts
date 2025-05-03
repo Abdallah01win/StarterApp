@@ -1,5 +1,7 @@
 import { axios } from '@/plugins'
 
+// add fetch that accepts the data ref, list, ref and hasList boolean, and accepts-lits
+
 export const baseCreate = (endpoint: string) => {
   return (form: Record<string, any>) => {
     return new Promise((resolve, reject) => {
