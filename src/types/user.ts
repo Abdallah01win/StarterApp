@@ -8,7 +8,7 @@ export enum UserRoles {
 
 export type userRoleOptions = Options<UserRoles>
 
-export interface User {
+export type User = {
   readonly id: number
   name: string
   email: string
@@ -16,12 +16,9 @@ export interface User {
   created_at: string
 }
 
+export type UserList = Pick<User, 'id' | 'name'>
+
 export interface InitUser extends Omit<User, 'created_at'> {
   permissions?: string[]
   notifications: any[]
-}
-
-export type UserFilters = {
-  name?: string
-  type?: string
 }

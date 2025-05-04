@@ -1,4 +1,5 @@
 import type { ResponseCodes } from '@/helpers'
+import type { Ref } from 'vue'
 
 export * from './components'
 export * from './dashboard'
@@ -44,6 +45,12 @@ export type ToasterOption = {
   type: 'success' | 'error'
   title: string
   description?: string
+}
+
+export type fetchParams = {
+  endpoint: string
+  tableData: Ref
+  listData?: Ref
 }
 
 export type FilterableHeaderProps = {
