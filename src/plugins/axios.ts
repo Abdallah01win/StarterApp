@@ -2,6 +2,7 @@ import { ResponseCodes, showToaster } from '@/helpers'
 import { locale } from '@/plugins'
 import router from '@/router'
 import { useAuthStore } from '@/stores/authStore'
+import { useParamStore } from '@/stores/paramStore'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 
@@ -27,7 +28,11 @@ Axios.interceptors.request.use((config) => {
 Axios.interceptors.response.use(
   (response) => {
     const acceptedCodes = [ResponseCodes.CREATED, ResponseCodes.ACCEPTED, ResponseCodes.NO_CONTENT]
+
     if (acceptedCodes.includes(response.status)) showToaster(response.status)
+
+    if (response.config.method === 'get' && response.data.meta)
+      useParamStore().meta = response.data.meta
 
     return response
   },
