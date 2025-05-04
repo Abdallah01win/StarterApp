@@ -12,34 +12,34 @@ Built on top of the elegant [Shadcn/vue](https://www.shadcn-vue.com/) component 
 
 ## Key Features
 
-*   **Modern UI & Styling:** Built with [Shadcn/vue](https://www.shadcn-vue.com/) and [Tailwind CSS v4](https://tailwindcss.com/blog/tailwindcss-v4-alpha) for a highly customizable and utility-first styling approach. Includes dark mode support via Shadcn.
-*   **Authentication:** Provides a structured for integrating API authentication logic vie barer-tokens and cookies.
-*   **API Integration:** Full [Axios](https://axios-http.com/) configuration for making HTTP requests out of the box.
-*   **Internationalization (i18n):** Setup with [Vue I18n](https://vue-i18n.intlify.dev/) for multi-language support.
-*   **State Management:** Uses [Pinia](https://pinia.vuejs.org/) for easy and scalable state management.
-*   **Routing:** Pre-configured [Vue Router](https://router.vuejs.org/) with file-based routing via `unplugin-vue-router`.
-*   **Form Handling:** Integrated [VeeValidate](https://vee-validate.logaretm.com/v4/) with [Zod](https://zod.dev/) for robust form validation.
-*   **TypeScript Support:** Fully typed codebase for better developer experience and code maintainability.
-*   **Utility Libraries:** Includes [VueUse](https://vueuse.org/) and [Day.js](https://day.js.org/) among others for common utility functions.
-*   **Alerts:** User feedback via [Vue Sonner](https://vue-sonner.vercel.app/).
-*   **Linting & Formatting:** Pre-configured [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) for code consistency.
+- **Modern UI & Styling:** Built with [Shadcn/vue](https://www.shadcn-vue.com/) and [Tailwind CSS v4](https://tailwindcss.com/blog/tailwindcss-v4-alpha) for a highly customizable and utility-first styling approach. Includes dark mode support via Shadcn.
+- **Authentication:** Provides a structured for integrating API authentication logic vie barer-tokens and cookies.
+- **API Integration:** Full [Axios](https://axios-http.com/) configuration for making HTTP requests out of the box.
+- **Internationalization (i18n):** Setup with [Vue I18n](https://vue-i18n.intlify.dev/) for multi-language support.
+- **State Management:** Uses [Pinia](https://pinia.vuejs.org/) for easy and scalable state management.
+- **Routing:** Pre-configured [Vue Router](https://router.vuejs.org/) with file-based routing via `unplugin-vue-router`.
+- **Form Handling:** Integrated [VeeValidate](https://vee-validate.logaretm.com/v4/) with [Zod](https://zod.dev/) for robust form validation.
+- **TypeScript Support:** Fully typed codebase for better developer experience and code maintainability.
+- **Utility Libraries:** Includes [VueUse](https://vueuse.org/) and [Day.js](https://day.js.org/) among others for common utility functions.
+- **Alerts:** User feedback via [Vue Sonner](https://vue-sonner.vercel.app/).
+- **Linting & Formatting:** Pre-configured [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) for code consistency.
 
 ## Tech Stack
 
-*   **Framework:** [Vue.js 3](https://vuejs.org/)
-*   **Build Tool:** [Vite](https://vitejs.dev/)
-*   **UI Components:** [Shadcn/vue](https://www.shadcn-vue.com/)
-*   **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
-*   **State Management:** [Pinia](https://pinia.vuejs.org/)
-*   **Routing:** [Vue Router](https://router.vuejs.org/) (`unplugin-vue-router`)
-*   **HTTP Client:** [Axios](https://axios-http.com/)
-*   **Form Validation:** [VeeValidate](https://vee-validate.logaretm.com/v4/) + [Zod](https://zod.dev/)
-*   **Language:** [TypeScript](https://www.typescriptlang.org/)
-*   **Icons:** [Lucide Vue Next](https://lucide.dev/), [Iconify](https://iconify.design/)
-*   **Utilities:** [VueUse](https://vueuse.org/), [Day.js](https://day.js.org/), [Tailwind Merge](https://github.com/dcastil/tailwind-merge), [clsx](https://github.com/lukeed/clsx)
-*   **Notifications:** [Vue Sonner](https://vue-sonner.vercel.app/)
-*   **i18n:** [Vue I18n](https://vue-i18n.intlify.dev/)
-*   **Linting/Formatting:** [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)
+- **Framework:** [Vue.js 3](https://vuejs.org/)
+- **Build Tool:** [Vite](https://vitejs.dev/)
+- **UI Components:** [Shadcn/vue](https://www.shadcn-vue.com/)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **State Management:** [Pinia](https://pinia.vuejs.org/)
+- **Routing:** [Vue Router](https://router.vuejs.org/) (`unplugin-vue-router`)
+- **HTTP Client:** [Axios](https://axios-http.com/)
+- **Form Validation:** [VeeValidate](https://vee-validate.logaretm.com/v4/) + [Zod](https://zod.dev/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Icons:** [Lucide Vue Next](https://lucide.dev/), [Iconify](https://iconify.design/)
+- **Utilities:** [VueUse](https://vueuse.org/), [Day.js](https://day.js.org/), [Tailwind Merge](https://github.com/dcastil/tailwind-merge), [clsx](https://github.com/lukeed/clsx)
+- **Notifications:** [Vue Sonner](https://vue-sonner.vercel.app/)
+- **i18n:** [Vue I18n](https://vue-i18n.intlify.dev/)
+- **Linting/Formatting:** [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)
 
 ## Getting Started
 
@@ -62,33 +62,41 @@ Built on top of the elegant [Shadcn/vue](https://www.shadcn-vue.com/) component 
 ```bash
 npm run dev
 ```
+
 This will start the Vite development server, typically available at http://localhost:5173 .
 
 ### Linting and Formatting
+
 - To check for linting errors run:
-    ```bash
-    npm run lint
-    ```
+
+  ```bash
+  npm run lint
+  ```
 
 - To automatically fix formatting and linting issues run:
-    ```bash
-    npm run format
-    ```
+  ```bash
+  npm run format
+  ```
 
 ## Configuration
+
 - Environment Variables: Create a .env file based on .env.example and specify your API endpoint:
 
-    ```bash
-    cp .env.example .env
-    ```
+  ```bash
+  cp .env.example .env
+  ```
 
 ## Customization
+
 This starter kit is designed to be easily customizable:
 
 - Theming: Modify Tailwind CSS configuration `tailwind.config.js` and Shadcn/vue settings `src/style.css` to change colors, fonts, and overall look and feel.
 - Components: Use the Shadcn/vue CLI to add new pre-built components to add or modify components in the src/components directory.
+
 ## Contributing
+
 Contributions are welcome! Please feel free to submit pull requests or open issues to improve the starter kit.
 
 ## License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
