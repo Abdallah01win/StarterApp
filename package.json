@@ -13,7 +13,7 @@
     "ci": "rm -rf node_modules && npm ci"
   },
   "dependencies": {
-    "@iconify/vue": "^4.3.0",
+    "@iconify/vue": "^5.0.0",
     "@tailwindcss/vite": "^4.1.7",
     "@tanstack/vue-table": "^8.21.3",
     "@vee-validate/zod": "^4.15.0",
