@@ -1,10 +1,10 @@
 export default [
   {
     label: 'English',
-    key: 'en-US'
+    key: 'en'
   },
   {
     label: 'Français',
-    key: 'fr-FR'
+    key: 'fr'
   }
 ]
