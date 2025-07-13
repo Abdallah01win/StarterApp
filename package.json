@@ -24,7 +24,7 @@
     "dayjs": "^1.11.13",
     "js-cookie": "^3.0.5",
     "lucide-vue-next": "^0.525.0",
-    "pinia": "^3.0.2",
+    "pinia": "^3.0.3",
     "reka-ui": "^2.3.2",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.7",
