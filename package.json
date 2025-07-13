@@ -16,7 +16,7 @@
     "@iconify/vue": "^5.0.0",
     "@tailwindcss/vite": "^4.1.7",
     "@tanstack/vue-table": "^8.21.3",
-    "@vee-validate/zod": "^4.15.0",
+    "@vee-validate/zod": "^4.15.1",
     "@vueuse/core": "^13.1.0",
     "axios": "^1.10.0",
     "class-variance-authority": "^0.7.1",
