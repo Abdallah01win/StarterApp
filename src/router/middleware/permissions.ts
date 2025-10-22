@@ -1,6 +1,6 @@
 import { hasPermission } from '@/helpers'
 import routesMap from '@/router/routesMap'
-import type { NavigationGuardNext, RouteLocation } from 'vue-router/auto'
+import type { NavigationGuardNext, RouteLocation } from 'vue-router'
 
 const permissionMiddleware = async (
   to: RouteLocation,

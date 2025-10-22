@@ -1,4 +1,4 @@
-export default [
+const locals = [
   {
     label: 'English',
     key: 'en'
@@ -7,4 +7,6 @@ export default [
     label: 'Français',
     key: 'fr'
   }
-]
+] as const
+
+export default locals
