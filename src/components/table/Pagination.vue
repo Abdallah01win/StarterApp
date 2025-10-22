@@ -101,7 +101,7 @@ const changePage = (page: number) => {
       </Pagination>
 
       <Select id="per-page" v-model="selectedPageSize">
-        <SelectTrigger class="!h-7 w-[100px]">
+        <SelectTrigger class="h-7 w-[100px]">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>

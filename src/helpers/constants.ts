@@ -3,7 +3,7 @@ import type { ToasterOption } from '@/types'
 
 export const phoneRegex = new RegExp(/^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/)
 
-export const pageSizeOptions = ['10', '20', '50', '100', '200', '500', '1000']
+export const pageSizeOptions = ['10', '20', '50', '100', '200', '500', '1000'] as const
 
 export enum DateFormats {
   DISPLAY = 'DD/MM/YYYY',
