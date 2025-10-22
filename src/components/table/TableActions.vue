@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import { t } from '@/plugins'
 import { Icon } from '@iconify/vue'
 
-const { row, actions } = defineProps<{
+const { row, actions = [] } = defineProps<{
   row: Record<string, string | number> & { id: number }
   actions?: { name: string; icon: string; action: (row: any) => unknown }[]
 }>()
@@ -11,7 +11,7 @@ const { row, actions } = defineProps<{
 const emit = defineEmits(['edit', 'delete'])
 
 const baseActions = [
-  ...(actions ?? []),
+  ...actions,
   {
     name: 'edit',
     icon: 'pencil',
