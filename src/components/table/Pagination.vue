@@ -101,13 +101,18 @@ const changePage = (page: number) => {
       </Pagination>
 
       <Select id="per-page" v-model="selectedPageSize">
-        <SelectTrigger class="h-7 w-[100px]">
+        <SelectTrigger class="h-7! w-[100px]">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
             <SelectLabel>{{ t('per-page') }}</SelectLabel>
-            <SelectItem v-for="size in pageSizeOptions" :key="size" :value="size">
+            <SelectItem
+              v-for="size in pageSizeOptions"
+              :key="size"
+              :value="size"
+              class="cursor-pointer"
+            >
               {{ size }}
             </SelectItem>
           </SelectGroup>
